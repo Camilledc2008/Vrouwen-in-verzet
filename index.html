@@ -96,6 +96,24 @@
     button:hover {
       background-color: #c2185b;
     }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 10px;
+    }
+
+    .woman-profile {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .woman-profile img {
+      margin-right: 15px;
+    }
+
   </style>
 </head>
 <body>
@@ -110,61 +128,47 @@
     <button onclick="showSection('werkvloer')">Werkvloer</button>
     <button onclick="showSection('woii')">WOII</button>
     <button onclick="showSection('campagne')">Campagne</button>
+    <button onclick="showSection('vergeten')">Vergeten Vrouwen</button>
   </nav>
 
   <main>
-    <section id="vandaag" class="content-section active">
-      <h2>Vandaag</h2>
-      <p>Vrouwen in België zetten zich in voor gelijke rechten, sociale rechtvaardigheid, gezondheid, onderwijs en het bestrijden van discriminatie. Ze staan op in de politiek, wetenschap, sport en kunst — zichtbaar, sterk en verbonden.</p>
-    </section>
+    <section id="vergeten" class="content-section active">
+      <h2>Vergeten Vrouwen Door de Jaren Heen</h2>
+      <p>De geschiedenis heeft veel vrouwen vergeten die ongelooflijke bijdragen hebben geleverd aan de wetenschap, politiek, kunst en de maatschappij. Hier volgen enkele van die vrouwen:</p>
+      
+      <div class="woman-profile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Marie_Curie_c1920.jpg/440px-Marie_Curie_c1920.jpg" alt="Marie Curie" class="profile-img" />
+        <div>
+          <strong>Marie Curie:</strong>
+          <p>De eerste vrouw die de Nobelprijs won, en de enige die dat deed in twee verschillende vakgebieden: Fysica en Chemie. Haar baanbrekende onderzoek naar radioactiviteit heeft de basis gelegd voor moderne medische technieken.</p>
+        </div>
+      </div>
 
-    <section id="gezondheid" class="content-section">
-      <h2>Gezondheid & Rechten</h2>
-      <p><strong>Abortus:</strong> Sinds 1990 gelegaliseerd in België. Vrouwen hebben recht op veilige toegang tot abortus, maar er blijft maatschappelijke discussie.</p>
-      <p><strong>Mentale gezondheid:</strong> Burn-outs zijn hoog, zeker bij zorgende vrouwen. Steeds meer aandacht voor psychologische ondersteuning.</p>
-    </section>
+      <div class="woman-profile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Rosalind_Franklin.jpg" alt="Rosalind Franklin" class="profile-img" />
+        <div>
+          <strong>Rosalind Franklin:</strong>
+          <p>Haar werk in de röntgendiffractie maakte het mogelijk om de structuur van DNA te begrijpen, maar haar bijdrage werd vaak genegeerd. Ze wordt nu erkend als een sleutelfiguur in de ontdekking van de dubbele helixstructuur van DNA.</p>
+        </div>
+      </div>
 
-    <section id="gelijkheid" class="content-section">
-      <h2>Gelijkheid</h2>
-      <p>Vrouwen in België zetten zich actief in voor meer gelijkheid op alle niveaus van de samenleving. Ze voeren actie voor <strong>gelijke lonen</strong>, <strong>gelijke kansen op de arbeidsmarkt</strong> en <strong>gelijke verdeling van zorgtaken</strong>.</p>
-      <p>Via vakbonden, feministische bewegingen en sociale media voeren ze druk uit op beleidsmakers om concrete maatregelen te nemen tegen loonkloof, seksisme en discriminatie op basis van gender. Steeds meer vrouwen nemen het woord in het publiek debat, organiseren betogingen en voeren juridische strijd voor hun rechten.</p>
-      <p>Ook in het onderwijs en de jeugdbewegingen groeit de aandacht voor gendergelijkheid. Vrouwen engageren zich als rolmodellen, mentoren en changemakers om stereotypen te doorbreken en toekomstige generaties sterker te maken.</p>
-      <p><strong>Hun boodschap is duidelijk: gelijke rechten zijn geen gunst, maar een recht.</strong></p>
-    </section>
+      <div class="woman-profile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Claudette_Colvin%2C_circa_1950.jpg" alt="Claudette Colvin" class="profile-img" />
+        <div>
+          <strong>Claudette Colvin:</strong>
+          <p>Een pionier in de Amerikaanse burgerrechtenbeweging die weigerde haar plaats in de bus af te staan, negen maanden vóór Rosa Parks. Haar moed om op te staan tegen de segregatie heeft de basis gelegd voor latere burgerrechtenbewegingen.</p>
+        </div>
+      </div>
 
-    <section id="werkvloer" class="content-section">
-      <h2>Vrouwen op de Werkvloer</h2>
-      <p>Vrouwen zijn vandaag actiever dan ooit op de Belgische arbeidsmarkt. Ze nemen hun plaats in binnen alle sectoren: van de zorg en het onderwijs tot technologie, bouw en wetenschap. Toch botsen ze nog vaak op obstakels zoals <strong>loonkloof</strong>, <strong>onzichtbare verwachtingen</strong> en een <strong>gebrek aan doorgroeikansen</strong>.</p>
-      <p>Via campagnes en vakbondsacties strijden vrouwen voor gelijke verloning, meer flexibiliteit rond ouderschap en betere bescherming tegen grensoverschrijdend gedrag op het werk.</p>
-      <p>Er is ook een groeiende beweging van vrouwen die elkaar ondersteunen via netwerken, mentoring en ondernemerschap. Ze bouwen bruggen, doorbreken het glazen plafond en inspireren de volgende generatie om groots te dromen — én het waar te maken.</p>
-      <p><strong>Hun aanwezigheid is geen uitzondering meer, maar de nieuwe norm.</strong></p>
-    </section>
+      <div class="woman-profile">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Margaret_Hamilton.jpg" alt="Margaret Hamilton" class="profile-img" />
+        <div>
+          <strong>Margaret Hamilton:</strong>
+          <p>De computerwetenschapper die de software schreef die de maanlandingen mogelijk maakte, maar vaak buiten het mainstream verhaal van de ruimtevaart wordt gelaten. Haar werk in software engineering heeft de ruimtevaartindustrie veranderd.</p>
+        </div>
+      </div>
 
-    <section id="woii" class="content-section">
-      <h2>Vrouwen in de Tweede Wereldoorlog</h2>
-      <p>Tijdens de Tweede Wereldoorlog speelden Belgische vrouwen een <strong>onmisbare maar vaak onzichtbare rol</strong> in het verzet, de zorg, de industrie en het dagelijks leven van een land in oorlog.</p>
-      <p>In het verzet namen vrouwen levensgevaarlijke taken op zich. Ze verspreidden clandestiene pamfletten, vervoerden geheime boodschappen, verborgen Joodse kinderen of geallieerde piloten, en saboteerden informatie of materiaal van de bezetter. Sommigen hielpen bij het smokkelen van wapens of het organiseren van schuilplaatsen. Dit alles deden ze onder de constante dreiging van arrestatie, deportatie of erger.</p>
-      <p>Vrouwen werkten ook als <strong>verpleegsters en hulpverleners</strong> tijdens bombardementen, in ondergrondse ziekenhuizen of in opvangcentra voor vluchtelingen. Ze boden psychologische steun en fysieke verzorging aan gewonden, gezinnen in paniek en mensen in rouw.</p>
-      <p>In de industrie namen vrouwen het werk over van mannen die naar het front waren gestuurd. Ze werkten in fabrieken, maakten munitie, assembleerden machines en hielden de economie draaiende, vaak onder slechte en gevaarlijke omstandigheden.</p>
-      <p>Ook als moeders, verzorgsters en sleutelfiguren in het huishouden speelden ze een stabiliserende rol. Ze zorgden voor voedsel, veiligheid en onderwijs voor hun kinderen, terwijl de oorlog hun hele wereld op zijn kop zette.</p>
-      <p><strong>Toen vaak onzichtbaar, nu onmisbaar:</strong> de Belgische vrouw heeft zich in WOII op talloze manieren ingezet met moed, doorzettingsvermogen en solidariteit. Hun bijdrage verdient blijvende erkenning.</p>
-    </section>
-
-    <section id="campagne" class="content-section">
-      <h2>Campagne: Meer kennis, meer kracht</h2>
-      <p>Hoewel vrouwen vandaag zichtbaarder zijn dan ooit, blijven veel verhalen onverteld. Veel mensen kennen de geschiedenis van vrouwelijke verzetshelden niet, of onderschatten hoeveel werk vrouwen dagelijks doen op school, thuis, op straat en op de werkvloer.</p>
-      <p>Met deze campagne willen we daar verandering in brengen. Door te informeren, te inspireren en te verbinden. Want kennis is kracht — en kracht leidt tot verandering.</p>
-      <p>We roepen scholen, media en organisaties op om <strong>meer vrouwelijke stemmen</strong> te laten horen, <strong>gendergelijkheid bespreekbaar</strong> te maken en <strong>onzichtbare bijdragen zichtbaar</strong> te maken.</p>
-      <p><strong>Doe mee. Deel verhalen. Leer bij. Zet je in.</strong> Samen bouwen we aan een samenleving waar iedereen telt.</p>
-
-      <hr />
-      <h3>✨ Deel jouw voorbeeldheldin</h3>
-      <p>Ken jij een vrouw — beroemd of onbekend — die jou inspireert? Iemand die het verschil maakt of maakte? Deel haar naam en waarom ze voor jou een heldin is.</p>
-      <textarea rows="4" placeholder="Bijvoorbeeld: Mijn grootmoeder hielp Joodse families onderduiken in WOII..."></textarea>
-      <br /><br />
-      <button>
-        Delen
-      </button>
+      <p>Deze vrouwen zijn slechts een handvol voorbeelden van de onbetaalbare bijdragen die vrouwen door de geschiedenis heen hebben geleverd — maar vaak onterecht zijn vergeten. Het is tijd dat we hun verhalen delen en hen de erkenning geven die ze verdienen!</p>
     </section>
   </main>
 
