@@ -100,6 +100,7 @@
     <button onclick="showSection('woii')">WOII</button>
     <button onclick="showSection('campagne')">Campagne</button>
     <button onclick="showSection('vergeten')">Vergeten Vrouwen</button>
+    <button onclick="showSection('maker')">Dit Project</button>
   </nav>
 
   <main>
@@ -107,20 +108,6 @@
       <h2>Vrouwen Vandaag</h2>
       <p>Vandaag de dag zetten vrouwen zich in voor gelijke rechten op elk vlak van de samenleving. Vrouwen in België blijven vechten voor gelijkheid, zowel in hun persoonlijke levens als op de werkvloer. Ze strijden tegen discriminatie, zorgen voor betere gezondheidszorg voor vrouwen en nemen steeds meer belangrijke posities in binnen de politiek en het bedrijfsleven. Veel vrouwen houden zich ook bezig met het bevorderen van de rechten van meisjes wereldwijd, zoals educatie en vrijheid van geweld. De strijd van vrouwen gaat verder en is een inspiratie voor jongere generaties.</p>
     </section>
-  <main>
-    <!-- Alle eerdere secties blijven hetzelfde... -->
-
-    <section id="vergeten" class="content-section">
-      <h2>Vergeten Vrouwen Door de Jaren Heen</h2>
-      <!-- ...vergeten vrouwen sectie inhoud... -->
-    </section>
-
-    <section id="maker" class="content-section">
-      <h2>Dit Project is Gemaakt Door:</h2>
-      <p>Dit project is gemaakt door Camille De Clercq van GO Atheneum Oudenaarde. Het werd geïnspireerd door een bezoek aan het concentratiekamp Breendonk, waar de aparte isolatiecellen voor vrouwen opvielen. Deze cellen werden gebruikt om vrouwen te isoleren en te verhinderen dat ze belangrijke informatie met anderen zouden delen. Dit bezoek liet Camille beseffen hoe belangrijk het is om de verhalen van vrouwen te herinneren, zowel de vergeten heldinnen uit de Tweede Wereldoorlog als de moderne vrouwen die zich inzetten voor gelijkheid en rechten.</p>
-      <p>Het doel van dit project is om meer aandacht te vestigen op de bijdragen van vrouwen, zowel vandaag als vroeger. Deze verhalen zijn vaak onderbelicht, maar ze spelen een belangrijke rol in de geschiedenis en in de voortdurende strijd voor gelijkheid. Het project is bedoeld om anderen te inspireren om meer te leren over de kracht van vrouwen en de manier waarop zij de wereld hebben gevormd en blijven vormen.</p>
-    </section>
-  </main>
 
     <section id="gezondheid" class="content-section">
       <h2>Gezondheid van Vrouwen</h2>
@@ -176,5 +163,27 @@
 
     <section id="vergeten" class="content-section">
       <h2>Vergeten Vrouwen Door de Jaren Heen</h2>
+      <p>Vele vrouwen die grote bijdragen hebben geleverd aan de samenleving zijn door de jaren heen vergeten. Dit gebeurt zowel in de geschiedenis van de Tweede Wereldoorlog als in moderne tijden. Vrouwen die zich inzetten voor gelijke rechten, politieke verandering en het verbeteren van de levens van anderen, hebben soms minder erkenning gekregen dan ze verdienen. Dit gedeelte is gewijd aan het herinneren van deze heldinnen en het herstellen van hun plaats in de geschiedenis.</p>
+    </section>
+
+    <section id="maker" class="content-section">
+      <h2>Dit Project is Gemaakt Door:</h2>
+      <p>Dit project is gemaakt door Camille De Clercq van GO Atheneum Oudenaarde. Het werd geïnspireerd door een bezoek aan het concentratiekamp Breendonk, waar de aparte isolatiecellen voor vrouwen opvielen. Deze cellen werden gebruikt om vrouwen te isoleren en te verhinderen dat ze belangrijke informatie met anderen zouden delen. Dit bezoek liet Camille beseffen hoe belangrijk het is om de verhalen van vrouwen te herinneren, zowel de vergeten heldinnen uit de Tweede Wereldoorlog als de moderne vrouwen die zich inzetten voor gelijkheid en rechten.</p>
+      <p>Het doel van dit project is om meer aandacht te vestigen op de bijdragen van vrouwen, zowel vandaag als vroeger. Deze verhalen zijn vaak onderbelicht, maar ze spelen een belangrijke rol in de geschiedenis en in de voortdurende strijd voor gelijkheid. Het project is bedoeld om anderen te inspireren om meer te leren over de kracht van vrouwen en de manier waarop zij de wereld hebben gevormd en blijven vormen.</p>
+    </section>
+  </main>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+      const activeSection = document.getElementById(sectionId);
+      activeSection.classList.add('active');
+    }
+  </script>
+</body>
+</html>
 
 
