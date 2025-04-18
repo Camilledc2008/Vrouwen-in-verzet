@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Vrouwen in Verzet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fff;
+      color: #222;
+    }
+
+    header {
+      background: #f7cfe3;
+      text-align: center;
+      padding: 2em;
+    }
+
+    h1 {
+      color: #80004d;
+      margin-bottom: 0;
+    }
+
+    .subtitle {
+      margin-top: 0.3em;
+      color: #4d004d;
+    }
+
+    nav {
+      margin-top: 1em;
+    }
+
+    nav button {
+      margin: 0.5em;
+      padding: 0.6em 1.2em;
+      background-color: #80004d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav button:hover {
+      background-color: #a61a64;
+    }
+
+    .content-section {
+      display: none;
+      padding: 2em;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    footer {
+      background: #f7cfe3;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Vrouwen in Verzet</h1>
+    <p class="subtitle">Toen onzichtbaar, nu onmisbaar</p>
+    <nav>
+      <button onclick="showSection('vandaag')">Vandaag</button>
+      <button onclick="showSection('gezondheid')">Gezondheid</button>
+      <button onclick="showSection('woii')">WOII</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="vandaag" class="content-section">
+      <h2>Vandaag</h2>
+      <p><strong>Gelijkheid:</strong> Belgische vrouwen blijven strijden voor gelijke kansen, gelijke lonen en politieke vertegenwoordiging.</p>
+      <p><strong>Werkvloer:</strong> Meer vrouwen in STEM, leidinggevende functies en doorbraak van het glazen plafond.</p>
+    </section>
+
+    <section id="gezondheid" class="content-section">
+      <h2>Gezondheid & Rechten</h2>
+      <p><strong>Abortus:</strong> Sinds 1990 gelegaliseerd in België. Vrouwen hebben recht op veilige toegang tot abortus, maar er blijft maatschappelijke discussie.</p>
+      <p><strong>Mentale gezondheid:</strong> Burn-outs zijn hoog, zeker bij zorgende vrouwen. Steeds meer aandacht voor psychologische ondersteuning.</p>
+    </section>
+
+    <section id="woii" class="content-section">
+      <h2>Vrouwen in WOII</h2>
+      <p>Vrouwen verspreidden pamfletten, zorgden voor gewonden, werkten in munitiefabrieken en verborgen kinderen tijdens bombardementen.</p>
+      <p>Hun heldendaden werden lang verzwegen, maar verdienen blijvende erkenning.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Vrouwen in Verzet</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
+
+      const selected = document.getElementById(sectionId);
+      if (selected) {
+        selected.classList.add('active');
+      }
+    }
+
+    window.onload = () => {
+      showSection('vandaag');
+    };
+  </script>
+
+</body>
+</html>
