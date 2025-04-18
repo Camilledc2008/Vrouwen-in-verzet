@@ -1,87 +1,100 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <meta charset="UTF-8">
-  <title>Vrouwen in Verzet</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vrouwen in Verzet – Toen onzichtbaar, nu onmisbaar</title>
   <style>
     body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff0f5;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #fff;
-      color: #222;
+      padding: 0;
+      color: #333;
     }
 
     header {
-      background: #f7cfe3;
+      background-color: #d81b60;
+      color: white;
+      padding: 2rem 1rem;
       text-align: center;
-      padding: 2em;
     }
 
-    h1 {
-      color: #80004d;
-      margin-bottom: 0;
-    }
-
-    .subtitle {
-      margin-top: 0.3em;
-      color: #4d004d;
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
     }
 
     nav {
-      margin-top: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background-color: #f8bbd0;
+      padding: 1rem;
+      gap: 0.5rem;
     }
 
     nav button {
-      margin: 0.5em;
-      padding: 0.6em 1.2em;
-      background-color: #80004d;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-weight: bold;
+      background-color: white;
+      border: 1px solid #d81b60;
+      color: #d81b60;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
       cursor: pointer;
+      font-weight: bold;
     }
 
     nav button:hover {
-      background-color: #a61a64;
+      background-color: #d81b60;
+      color: white;
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
 
     .content-section {
       display: none;
-      padding: 2em;
+      animation: fadeIn 0.5s ease-in;
     }
 
     .content-section.active {
       display: block;
     }
 
-    footer {
-      background: #f7cfe3;
-      text-align: center;
-      padding: 1em;
-      margin-top: 2em;
-      font-size: 0.9em;
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    h2 {
+      color: #d81b60;
+    }
+
+    p {
+      line-height: 1.6;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Vrouwen in Verzet</h1>
-    <p class="subtitle">Toen onzichtbaar, nu onmisbaar</p>
-    <nav>
-      <button onclick="showSection('vandaag')">Vandaag</button>
-      <button onclick="showSection('gezondheid')">Gezondheid</button>
-      <button onclick="showSection('woii')">WOII</button>
-    </nav>
+    <h1>Vrouwen in Verzet – Toen onzichtbaar, nu onmisbaar</h1>
   </header>
 
+  <nav>
+    <button onclick="showSection('vandaag')">Vandaag</button>
+    <button onclick="showSection('gezondheid')">Gezondheid</button>
+    <button onclick="showSection('gelijkheid')">Gelijkheid</button>
+    <button onclick="showSection('werkvloer')">Werkvloer</button>
+    <button onclick="showSection('woii')">WOII</button>
+  </nav>
+
   <main>
-    <section id="vandaag" class="content-section">
+    <section id="vandaag" class="content-section active">
       <h2>Vandaag</h2>
-      <p><strong>Gelijkheid:</strong> Belgische vrouwen blijven strijden voor gelijke kansen, gelijke lonen en politieke vertegenwoordiging.</p>
-      <p><strong>Werkvloer:</strong> Meer vrouwen in STEM, leidinggevende functies en doorbraak van het glazen plafond.</p>
+      <p>Vrouwen in België zetten zich in voor gelijke rechten, sociale rechtvaardigheid, gezondheid, onderwijs en het bestrijden van discriminatie. Ze staan op in de politiek, wetenschap, sport en kunst — zichtbaar, sterk en verbonden.</p>
     </section>
 
     <section id="gezondheid" class="content-section">
@@ -90,34 +103,42 @@
       <p><strong>Mentale gezondheid:</strong> Burn-outs zijn hoog, zeker bij zorgende vrouwen. Steeds meer aandacht voor psychologische ondersteuning.</p>
     </section>
 
+    <section id="gelijkheid" class="content-section">
+      <h2>Gelijkheid</h2>
+      <p>Vrouwen in België zetten zich actief in voor meer gelijkheid op alle niveaus van de samenleving. Ze voeren actie voor <strong>gelijke lonen</strong>, <strong>gelijke kansen op de arbeidsmarkt</strong> en <strong>gelijke verdeling van zorgtaken</strong>.</p>
+      <p>Via vakbonden, feministische bewegingen en sociale media voeren ze druk uit op beleidsmakers om concrete maatregelen te nemen tegen loonkloof, seksisme en discriminatie op basis van gender. Steeds meer vrouwen nemen het woord in het publiek debat, organiseren betogingen en voeren juridische strijd voor hun rechten.</p>
+      <p>Ook in het onderwijs en de jeugdbewegingen groeit de aandacht voor gendergelijkheid. Vrouwen engageren zich als rolmodellen, mentoren en changemakers om stereotypen te doorbreken en toekomstige generaties sterker te maken.</p>
+      <p><strong>Hun boodschap is duidelijk: gelijke rechten zijn geen gunst, maar een recht.</strong></p>
+    </section>
+
+    <section id="werkvloer" class="content-section">
+      <h2>Vrouwen op de Werkvloer</h2>
+      <p>Vrouwen zijn vandaag actiever dan ooit op de Belgische arbeidsmarkt. Ze nemen hun plaats in binnen alle sectoren: van de zorg en het onderwijs tot technologie, bouw en wetenschap. Toch botsen ze nog vaak op obstakels zoals <strong>loonkloof</strong>, <strong>onzichtbare verwachtingen</strong> en een <strong>gebrek aan doorgroeikansen</strong>.</p>
+      <p>Via campagnes en vakbondsacties strijden vrouwen voor gelijke verloning, meer flexibiliteit rond ouderschap en betere bescherming tegen grensoverschrijdend gedrag op het werk.</p>
+      <p>Er is ook een groeiende beweging van vrouwen die elkaar ondersteunen via netwerken, mentoring en ondernemerschap. Ze bouwen bruggen, doorbreken het glazen plafond en inspireren de volgende generatie om groots te dromen — én het waar te maken.</p>
+      <p><strong>Hun aanwezigheid is geen uitzondering meer, maar de nieuwe norm.</strong></p>
+    </section>
+
     <section id="woii" class="content-section">
-      <h2>Vrouwen in WOII</h2>
-      <p>Vrouwen verspreidden pamfletten, zorgden voor gewonden, werkten in munitiefabrieken en verborgen kinderen tijdens bombardementen.</p>
-      <p>Hun heldendaden werden lang verzwegen, maar verdienen blijvende erkenning.</p>
+      <h2>Vrouwen in de Tweede Wereldoorlog</h2>
+      <p>Tijdens de Tweede Wereldoorlog speelden Belgische vrouwen een <strong>onmisbare maar vaak onzichtbare rol</strong> in het verzet, de zorg, de industrie en het dagelijks leven van een land in oorlog.</p>
+      <p>In het verzet namen vrouwen levensgevaarlijke taken op zich. Ze verspreidden clandestiene pamfletten, vervoerden geheime boodschappen, verborgen Joodse kinderen of geallieerde piloten, en saboteerden informatie of materiaal van de bezetter. Sommigen hielpen bij het smokkelen van wapens of het organiseren van schuilplaatsen. Dit alles deden ze onder de constante dreiging van arrestatie, deportatie of erger.</p>
+      <p>Vrouwen werkten ook als <strong>verpleegsters en hulpverleners</strong> tijdens bombardementen, in ondergrondse ziekenhuizen of in opvangcentra voor vluchtelingen. Ze boden psychologische steun en fysieke verzorging aan gewonden, gezinnen in paniek en mensen in rouw.</p>
+      <p>In de industrie namen vrouwen het werk over van mannen die naar het front waren gestuurd. Ze werkten in fabrieken, maakten munitie, assembleerden machines en hielden de economie draaiende, vaak onder slechte en gevaarlijke omstandigheden.</p>
+      <p>Ook als moeders, verzorgsters en sleutelfiguren in het huishouden speelden ze een stabiliserende rol. Ze zorgden voor voedsel, veiligheid en onderwijs voor hun kinderen, terwijl de oorlog hun hele wereld op zijn kop zette.</p>
+      <p><strong>Toen vaak onzichtbaar, nu onmisbaar:</strong> de Belgische vrouw heeft zich in WOII op talloze manieren ingezet met moed, doorzettingsvermogen en solidariteit. Hun bijdrage verdient blijvende erkenning.</p>
     </section>
   </main>
 
-  <footer>
-    <p>© 2025 Vrouwen in Verzet</p>
-  </footer>
-
   <script>
-    function showSection(sectionId) {
+    function showSection(id) {
       const sections = document.querySelectorAll('.content-section');
       sections.forEach(section => {
         section.classList.remove('active');
       });
-
-      const selected = document.getElementById(sectionId);
-      if (selected) {
-        selected.classList.add('active');
-      }
+      document.getElementById(id).classList.add('active');
     }
-
-    window.onload = () => {
-      showSection('vandaag');
-    };
   </script>
-
 </body>
 </html>
+
