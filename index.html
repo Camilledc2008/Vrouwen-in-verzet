@@ -76,6 +76,26 @@
     p {
       line-height: 1.6;
     }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      background-color: #d81b60;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #c2185b;
+    }
   </style>
 </head>
 <body>
@@ -89,6 +109,7 @@
     <button onclick="showSection('gelijkheid')">Gelijkheid</button>
     <button onclick="showSection('werkvloer')">Werkvloer</button>
     <button onclick="showSection('woii')">WOII</button>
+    <button onclick="showSection('campagne')">Campagne</button>
   </nav>
 
   <main>
@@ -127,6 +148,23 @@
       <p>In de industrie namen vrouwen het werk over van mannen die naar het front waren gestuurd. Ze werkten in fabrieken, maakten munitie, assembleerden machines en hielden de economie draaiende, vaak onder slechte en gevaarlijke omstandigheden.</p>
       <p>Ook als moeders, verzorgsters en sleutelfiguren in het huishouden speelden ze een stabiliserende rol. Ze zorgden voor voedsel, veiligheid en onderwijs voor hun kinderen, terwijl de oorlog hun hele wereld op zijn kop zette.</p>
       <p><strong>Toen vaak onzichtbaar, nu onmisbaar:</strong> de Belgische vrouw heeft zich in WOII op talloze manieren ingezet met moed, doorzettingsvermogen en solidariteit. Hun bijdrage verdient blijvende erkenning.</p>
+    </section>
+
+    <section id="campagne" class="content-section">
+      <h2>Campagne: Meer kennis, meer kracht</h2>
+      <p>Hoewel vrouwen vandaag zichtbaarder zijn dan ooit, blijven veel verhalen onverteld. Veel mensen kennen de geschiedenis van vrouwelijke verzetshelden niet, of onderschatten hoeveel werk vrouwen dagelijks doen op school, thuis, op straat en op de werkvloer.</p>
+      <p>Met deze campagne willen we daar verandering in brengen. Door te informeren, te inspireren en te verbinden. Want kennis is kracht — en kracht leidt tot verandering.</p>
+      <p>We roepen scholen, media en organisaties op om <strong>meer vrouwelijke stemmen</strong> te laten horen, <strong>gendergelijkheid bespreekbaar</strong> te maken en <strong>onzichtbare bijdragen zichtbaar</strong> te maken.</p>
+      <p><strong>Doe mee. Deel verhalen. Leer bij. Zet je in.</strong> Samen bouwen we aan een samenleving waar iedereen telt.</p>
+
+      <hr />
+      <h3>✨ Deel jouw voorbeeldheldin</h3>
+      <p>Ken jij een vrouw — beroemd of onbekend — die jou inspireert? Iemand die het verschil maakt of maakte? Deel haar naam en waarom ze voor jou een heldin is.</p>
+      <textarea rows="4" placeholder="Bijvoorbeeld: Mijn grootmoeder hielp Joodse families onderduiken in WOII..."></textarea>
+      <br /><br />
+      <button>
+        Delen
+      </button>
     </section>
   </main>
 
