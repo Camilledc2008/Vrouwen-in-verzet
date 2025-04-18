@@ -149,23 +149,21 @@
       <p>Vrouwen hebben in de afgelopen decennia enorme vooruitgang geboekt op de werkvloer...</p>
     </section>
 
+    <!-- Sectie: WOII -->
+    <section id="woii" class="content-section">
+      <h2>Vrouwen in WOII</h2>
+      <p>In de Tweede Wereldoorlog waren het niet enkel soldaten aan het front die vochten voor vrijheid. Ook vrouwen speelden een sleutelrol – vaak in stilte, vaak ongezien.</p>
+      <ul>
+        <li><strong>De Verpleegster:</strong> stond aan het bed van gewonden, onderduikers en zieken. Met weinig middelen en onder gevaarlijke omstandigheden redde ze levens. Zonder wapens, maar met toewijding.</li>
+        <li><strong>De Pamfletverspreidster:</strong> bracht hoop en waarheid door clandestiene kranten te verspreiden. Ze typte, kopieerde en deelde informatie ondanks groot gevaar.</li>
+        <li><strong>De Vrouw in de Wapenindustrie:</strong> nam het werk van de mannen over in de fabrieken. Ze bouwde vliegtuigen, assembleerde munitie en hield de economie draaiende.</li>
+        <li><strong>De Moeder of Beschermer:</strong> verstopte onderduikers en verzetsstrijders, gaf eten en bescherming, en koos voor menselijkheid in een tijd van angst.</li>
+      </ul>
+    </section>
+
     <!-- Sectie: Vergeten Vrouwen -->
     <section id="vergeten" class="content-section">
       <h2>Vergeten Vrouwen Door de Jaren Heen</h2>
-
-      <p><strong>1. De Verpleegster</strong><br>
-      Zij stond aan het bed van gewonden, onderduikers en zieken. Met weinig middelen, vaak onder gevaarlijke omstandigheden, redde zij levens. Zonder wapen, maar met ongelooflijke toewijding.</p>
-
-      <p><strong>2. De Pamfletverspreidster</strong><br>
-      Zij bracht informatie, hoop en waarheid. Ze typte, kopieerde en verspreidde clandestiene kranten en pamfletten – vaak ’s nachts, onder de dreiging van arrestatie. Zij weigerde te zwijgen.</p>
-
-      <p><strong>3. De Vrouw in de Wapenindustrie</strong><br>
-      Toen mannen naar het front trokken, namen vrouwen het werk in de fabrieken over. Ze bouwden vliegtuigen, assembleerden munitie, hielden de economie draaiende. Zij ondersteunde de strijd van binnenuit.</p>
-
-      <p><strong>4. De Moeder of Beschermer</strong><br>
-      In huizen, schuren en kelders verstopten vrouwen kinderen, joden, verzetsmensen. Ze boden onderdak, deelden eten, en brachten veiligheid. Zij koos voor menselijkheid, boven angst.</p>
-
-      <p>Samen vertellen deze vier figuren één verhaal: dat vrouwen, vaak onzichtbaar in de grote geschiedschrijving, essentiële heldinnen waren in het verzet en de overleving van vele anderen.</p>
 
       <div class="woman-profile">
         <h3>Lucie Dorgelo</h3>
@@ -209,6 +207,7 @@
           <ul id="heroes">
             <!-- Heldinnen komen hier -->
           </ul>
+          <p id="thanksMessage" style="color: green; display: none; margin-top: 1rem;">Bedankt voor het delen van jouw heldin!</p>
         </div>
       </div>
     </section>
@@ -216,7 +215,7 @@
     <!-- Sectie: Dit Project -->
     <section id="maker" class="content-section">
       <h2>Dit Project</h2>
-      <p>Dit project is gemaakt door Camille De Clercq van GO! Atheneum Oudenaarde. Ze wil met deze website aandacht vragen voor de rol van vrouwen doorheen de geschiedenis en vandaag. Te vaak zijn hun verhalen onderbelicht gebleven – in de geschiedenisboeken, in het nieuws, op school. Met deze site wil ik niet alleen vergeten vrouwen eren, maar ook vrouwen van vandaag zichtbaar maken. Vrouwen die inspireren, leiden, zorgen, bouwen, veranderen en volhouden. Dit is een uitnodiging om na te denken, te herinneren en vooral: om jouw heldin te delen met de wereld.zen aan de vergeten vrouwen, maar ook aan de vrouwen van vandaag – de moeders, zussen, collega’s en vriendinnen die elke dag opnieuw het verschil maken. Het is een uitnodiging om stil te staan, te herinneren, en te erkennen. Want elke vrouw verdient een plek in het verhaal van onze tijd.</p>
+      <p>Ik ben Camille De Clercq, leerling aan GO! Atheneum Oudenaarde, en ik maakte deze website omdat ik vrouwen een stem wil geven – vroeger én nu. Te vaak worden hun verhalen vergeten of genegeerd in de geschiedenisboeken, op school of in het nieuws. Met dit project wil ik vergeten vrouwen eren, maar ook hedendaagse heldinnen zichtbaar maken. Vrouwen die inspireren, zorgen, bouwen, volhouden en het verschil maken. Deze site is een uitnodiging om stil te staan, te herinneren en vooral: om jouw heldin met de wereld te delen.</p>
     </section>
   </main>
 
@@ -231,16 +230,24 @@
 
     document.getElementById('heroForm').addEventListener('submit', function(e) {
       e.preventDefault();
+
       const heroName = document.getElementById('heroName').value;
       const heroStory = document.getElementById('heroStory').value;
       const heroList = document.getElementById('heroes');
+      const thanksMessage = document.getElementById('thanksMessage');
+
       const newHero = document.createElement('li');
       newHero.innerHTML = `<strong>${heroName}</strong>: ${heroStory}`;
       heroList.appendChild(newHero);
+
       document.getElementById('heroForm').reset();
+
+      thanksMessage.style.display = 'block';
+      setTimeout(() => {
+        thanksMessage.style.display = 'none';
+      }, 4000);
     });
   </script>
 </body>
 </html>
-
 
