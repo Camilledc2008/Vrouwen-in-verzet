@@ -190,17 +190,6 @@
   <p>Het ondernemerschap voor vrouwen heeft vaak te maken met extra obstakels. Het verkrijgen van financiering, de perceptie van vrouwen als ondernemers en de balans tussen werk en gezin zijn slechts enkele van de uitdagingen die we moeten overwinnen. Toch zie ik dagelijks inspirerende vrouwen die hun eigen bedrijven opbouwen en het verschil maken.</p>
 </section>
 
-<!-- Sectie: Quiz -->
-<section id="quiz" class="content-section">
-  <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
-  <form id="verzetQuiz">
-    <div id="quizContainer"></div>
-    <button type="submit">Bekijk resultaat</button>
-  </form>
-  <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
-  <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
-</section>
-
 <script>
   const questions = [
     {
@@ -329,46 +318,43 @@
       quizContainer.appendChild(div);
     });
 
-    // Hide the retry button when quiz is being filled
     retryButton.style.display = "none";
   }
 
   form.addEventListener("submit", function(e) {
     e.preventDefault();
     let score = 0;
-    let unanswered = 0;
     let feedback = [];
 
     questions.forEach((q, i) => {
       const selected = form.querySelector(`input[name="question${i}"]:checked`);
       if (!selected) {
-        unanswered++;
-        feedback.push(`<strong>Vraag ${i + 1}:</strong> Niet beantwoord.`);
+        feedback.push(`<strong>Vraag ${i + 1}:</strong> <span style="color: orange;">Niet beantwoord.</span>`);
       } else if (parseInt(selected.value) === q.answer) {
         score++;
-        feedback.push(`<strong>Vraag ${i + 1}:</strong> Juist!`);
+        feedback.push(`<strong>Vraag ${i + 1}:</strong> ✅ Juist!`);
       } else {
-        feedback.push(`<strong>Vraag ${i + 1}:</strong> Fout! Het juiste antwoord was: "${q.options[q.answer]}".`);
+        feedback.push(`<strong>Vraag ${i + 1}:</strong> ❌ Fout! Het juiste antwoord was: <em>"${q.options[q.answer]}"</em>.`);
       }
     });
 
-    // Resultaat weergeven
-    resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}<br><br>${feedback.join('<br>')}`;
+    resultDiv.innerHTML = `
+      <p><strong>Je score: ${score} van de ${questions.length}</strong></p>
+      ${feedback.join("<br>")}
+    `;
 
-    // Show the retry button
     retryButton.style.display = "inline-block";
   });
 
   retryButton.addEventListener("click", function() {
-    // Reset the form and results
     form.reset();
     resultDiv.innerHTML = "";
     generateQuiz();
   });
 
-  // Initial quiz generation
   generateQuiz();
 </script>
+
 
 
 <section id="carrousel" class="content-section">
