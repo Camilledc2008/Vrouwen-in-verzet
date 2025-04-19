@@ -429,17 +429,7 @@
         thanksMessage.style.display = 'none';
       }, 4000);
     });
-    document.getElementById('verzetQuiz').addEventListener('submit', function(e) {
-  e.preventDefault();
   
-  let score = 0;
-  if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
-  if (document.querySelector('input[name="q2"]:checked')?.value === "b") score++;
-  if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
-
-  const result = document.getElementById('quizResult');
-  result.textContent = `Je behaalde ${score} van de 3 punten.`;
-});
 const carrouselData = [
   {
     name: "Andrée de Jongh",
