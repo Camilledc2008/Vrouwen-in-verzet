@@ -118,6 +118,7 @@
     <button onclick="showSection('gezondheid')">Gezondheid</button>
     <button onclick="showSection('gelijkheid')">Gelijkheid</button>
     <button onclick="showSection('werkvloer')">Werkvloer</button>
+    <button onclick="showSection('quiz')">Quiz</button>
     <button onclick="showSection('woii')">WOII</button>
     <button onclick="showSection('heldin')">Jouw Heldin</button>
     <button onclick="showSection('vergeten')">Vergeten Vrouwen</button>
@@ -187,6 +188,30 @@
 
   <h3>🔹 Ondernemen als Vrouw</h3>
   <p>Het ondernemerschap voor vrouwen heeft vaak te maken met extra obstakels. Het verkrijgen van financiering, de perceptie van vrouwen als ondernemers en de balans tussen werk en gezin zijn slechts enkele van de uitdagingen die we moeten overwinnen. Toch zie ik dagelijks inspirerende vrouwen die hun eigen bedrijven opbouwen en het verschil maken.</p>
+</section>
+
+    <!-- Sectie: Quiz -->
+<section id="quiz" class="content-section">
+  <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
+  <form id="verzetQuiz">
+    <p><strong>1. Wat deed Andrée de Jongh tijdens WOII?</strong></p>
+    <label><input type="radio" name="q1" value="a" /> Ze werkte in een ziekenhuis</label><br />
+    <label><input type="radio" name="q1" value="b" /> Ze leidde een ontsnappingslijn voor geallieerde piloten</label><br />
+    <label><input type="radio" name="q1" value="c" /> Ze was parlementslid</label><br />
+
+    <p><strong>2. Waarom waren vrouwelijke pamfletverspreidsters zo belangrijk?</strong></p>
+    <label><input type="radio" name="q2" value="a" /> Ze zorgden voor voedsel</label><br />
+    <label><input type="radio" name="q2" value="b" /> Ze verspreidden hoop en waarheid onder de bevolking</label><br />
+    <label><input type="radio" name="q2" value="c" /> Ze regelden transport</label><br />
+
+    <p><strong>3. Welke rol namen vrouwen vaak over tijdens de oorlog?</strong></p>
+    <label><input type="radio" name="q3" value="a" /> Die van onderwijzer</label><br />
+    <label><input type="radio" name="q3" value="b" /> Die van fabrieksarbeider in de wapenindustrie</label><br />
+    <label><input type="radio" name="q3" value="c" /> Die van burgemeester</label><br />
+
+    <button type="submit">Bekijk resultaat</button>
+  </form>
+  <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
 </section>
 
 
@@ -291,6 +316,18 @@
         thanksMessage.style.display = 'none';
       }, 4000);
     });
+    document.getElementById('verzetQuiz').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  let score = 0;
+  if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
+  if (document.querySelector('input[name="q2"]:checked')?.value === "b") score++;
+  if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
+
+  const result = document.getElementById('quizResult');
+  result.textContent = `Je behaalde ${score} van de 3 punten.`;
+});
+
   </script>
 </body>
 </html>
