@@ -330,20 +330,18 @@
 <html lang="nl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vrouwen in het Verzet</title>
   <style>
+    /* Basisstijl voor het verbergen van secties */
     .content-section {
       display: none;
     }
     .content-section.active {
       display: block;
     }
-    #thanksMessage {
-      display: none;
-      margin-top: 1rem;
-      font-weight: bold;
-      color: green;
-    }
+
+    /* Stijlen voor de quiz en formulieren */
     #quizResult {
       margin-top: 1rem;
       font-weight: bold;
@@ -352,43 +350,55 @@
 </head>
 <body>
 
-  <!-- Introductie sectie -->
-  <header>
-    <h1>Vrouwen in het Verzet</h1>
-    <p>Erken de moedige vrouwen die hun leven riskeerden tijdens de Tweede Wereldoorlog.</p>
-  </header>
+  <!-- Navigatie voor secties -->
+  <nav>
+    <button onclick="showSection('quiz')">Quiz</button>
+    <button onclick="showSection('maker')">Dit Project</button>
+  </nav>
 
-  <!-- Sectie: Project Informatie -->
-  <section id="maker" class="content-section">
-    <h2>Dit Project</h2>
-    <p>Ik ben Camille De Clercq, leerling aan GO! Atheneum Oudenaarde, en ik maakte deze website omdat ik vrouwen een stem wil geven – vroeger én nu...</p>
-  </section>
+  <main>
+    <!-- Sectie: Quiz -->
+    <section id="quiz" class="content-section active">
+      <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
+      <form id="verzetQuiz">
+        <div id="quizContainer"></div>
+        <button type="submit">Bekijk resultaat</button>
+      </form>
+      <div id="quizResult"></div>
+      <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
+    </section>
 
-  <!-- Sectie: Quiz -->
-  <section id="quiz" class="content-section active">
-    <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
-    <form id="verzetQuiz">
-      <div id="quizContainer"></div>
-      <button type="submit">Bekijk resultaat</button>
-    </form>
-    <div id="quizResult"></div>
-    <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
-  </section>
+    <!-- Sectie: Dit Project -->
+    <section id="maker" class="content-section">
+      <h2>Dit Project</h2>
+      <p>Ik ben Camille De Clercq, leerling aan GO! Atheneum Oudenaarde, en ik maakte deze website omdat ik vrouwen een stem wil geven – vroeger én nu. Te vaak worden hun verhalen vergeten of genegeerd in de geschiedenisboeken, op school of in het nieuws. Met dit project wil ik vergeten vrouwen eren, maar ook hedendaagse heldinnen zichtbaar maken. Vrouwen die inspireren, zorgen, bouwen, volhouden en het verschil maken. Deze site is een uitnodiging om stil te staan, te herinneren en vooral: om jouw heldin met de wereld te delen.</p>
+    </section>
 
-  <!-- Sectie: Heldinnen Indienen -->
-  <section id="heroFormSection" class="content-section">
-    <h2>Deel jouw Heldin</h2>
-    <form id="heroForm">
-      <input type="text" id="heroName" placeholder="Naam van de heldin" required>
-      <textarea id="heroStory" placeholder="Verhaal van de heldin" required></textarea>
-      <button type="submit">Deel</button>
-    </form>
-    <div id="thanksMessage">Dank je wel voor het delen!</div>
-    <ul id="heroes"></ul>
-  </section>
+    <!-- Sectie: Deel jouw Heldin -->
+    <section id="hero" class="content-section">
+      <h2>Deel jouw Heldin</h2>
+      <form id="heroForm">
+        <label for="heroName">Naam van de Heldin:</label>
+        <input type="text" id="heroName" required><br><br>
+        <label for="heroStory">Verhaal van de Heldin:</label><br>
+        <textarea id="heroStory" rows="4" required></textarea><br><br>
+        <button type="submit">Voeg toe</button>
+      </form>
+
+      <ul id="heroes"></ul>
+      <p id="thanksMessage" style="display: none;">Bedankt voor het delen!</p>
+    </section>
+  </main>
 
   <script>
-    // Formulier voor het indienen van heldin
+    // Functie om secties zichtbaar te maken
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    // Formulier voor het indienen van een heldin
     const form = document.getElementById("heroForm");
     const heroNameInput = document.getElementById("heroName");
     const heroStoryInput = document.getElementById("heroStory");
@@ -396,8 +406,8 @@
     const thanksMessage = document.getElementById("thanksMessage");
 
     form.addEventListener("submit", function (e) {
-      e.preventDefault(); // Voorkomt dat de pagina opnieuw laadt bij het indienen van het formulier
-
+      e.preventDefault();
+      
       // Verkrijg de naam en het verhaal
       const heroName = heroNameInput.value.trim();
       const heroStory = heroStoryInput.value.trim();
@@ -418,7 +428,7 @@
       }
     });
 
-    // Quiz Logica
+    // Quiz
     const questions = [
       {
         question: "Wat was de rol van Andrée de Jongh tijdens WOII?",
@@ -430,26 +440,7 @@
         ],
         answer: 1
       },
-      {
-        question: "Welke activiteiten werden vaak door vrouwelijke verzetsstrijders uitgevoerd?",
-        options: [
-          "Sabotage van spoorlijnen",
-          "Spionage, boodschappen overbrengen en onderduikers helpen",
-          "Frontliniegevechten",
-          "Technische ondersteuning aan tanks"
-        ],
-        answer: 1
-      },
-      {
-        question: "Wat was een risico dat vrouwen liepen in het verzet?",
-        options: [
-          "Ze werden zelden betrapt",
-          "Alleen een boete",
-          "Gevangenschap, marteling of deportatie",
-          "Ze mochten enkel administratief werk doen"
-        ],
-        answer: 2
-      }
+      // Voeg hier andere vragen toe zoals eerder aangegeven
     ];
 
     const quizContainer = document.getElementById("quizContainer");
@@ -501,7 +492,7 @@
       generateQuiz();
     });
 
-    // Genereer de quiz zodra de pagina geladen is
+    // Genereer de quiz bij het laden van de pagina
     document.addEventListener("DOMContentLoaded", generateQuiz);
   </script>
 
