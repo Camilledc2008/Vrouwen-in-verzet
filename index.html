@@ -590,18 +590,46 @@ generateQuiz();
   </style>
 </head>
 
-<body>
-  <!-- Sectie: Quiz -->
-  <section id="quiz" class="content-section">
-    <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
-    <form id="verzetQuiz">
-      <div id="quizContainer"></div>
-      <button type="submit">Bekijk resultaat</button>
-    </form>
-    <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
-    <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
-  </section>
-</body>
+<head>
+  <style>
+    /* Zorg ervoor dat de quiz altijd netjes in het midden van de pagina komt */
+    #quiz {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px; /* Voeg padding toe om de quiz wat ruimte te geven */
+      background-color: #f4f4f4; /* Maak het visueel onderscheidend */
+      border-radius: 10px; /* Maak de hoeken afgerond */
+      width: 100%;
+      max-width: 600px; /* Beperk de breedte zodat de quiz niet te breed is */
+      margin-left: auto;
+      margin-right: auto; /* Center de quiz horizontaal */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Voeg een lichte schaduw toe */
+    }
+
+    /* Zorg ervoor dat de quiz in het midden van de pagina blijft */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Zorg ervoor dat de body altijd minimaal de hoogte van het scherm heeft */
+      margin: 0;
+      background-color: #f9f9f9;
+    }
+
+    #verzetQuiz {
+      width: 100%;
+    }
+
+    #quizResult, #retryQuiz {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
 
 
 </body>
