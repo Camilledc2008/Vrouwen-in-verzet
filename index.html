@@ -272,31 +272,64 @@
     </section>
 
    
-    <!-- Sectie: Jouw Heldin -->
-    <section id="heldin" class="content-section">
-      <h2>Jouw Heldin</h2>
-      <p>Ken jij een vrouw die een inspirerende heldin is? Vul hieronder haar naam en verhaal in en deel haar moedige daden met anderen!</p>
+   <!-- Sectie: Jouw Heldin -->
+<section id="heldin" class="content-section">
+  <h2>Jouw Heldin</h2>
+  <p>Ken jij een vrouw die een inspirerende heldin is? Vul hieronder haar naam en verhaal in en deel haar moedige daden met anderen!</p>
 
-      <div class="form-section">
-        <form id="heroForm">
-          <label for="heroName">Naam van je heldin:</label>
-          <input type="text" id="heroName" required>
+  <div class="form-section">
+    <form id="heroForm">
+      <label for="heroName">Naam van je heldin:</label>
+      <input type="text" id="heroName" required>
 
-          <label for="heroStory">Verhaal van je heldin:</label>
-          <textarea id="heroStory" rows="4" required></textarea>
+      <label for="heroStory">Verhaal van je heldin:</label>
+      <textarea id="heroStory" rows="4" required></textarea>
 
-          <button type="submit">Indienen</button>
-        </form>
+      <button type="submit">Indienen</button>
+    </form>
 
-        <div id="heroList">
-          <h3>Heldinnen die al zijn gedeeld:</h3>
-          <ul id="heroes">
-            <!-- Heldinnen komen hier -->
-          </ul>
-          <p id="thanksMessage" style="color: green; display: none; margin-top: 1rem;">Bedankt voor het delen van jouw heldin!</p>
-        </div>
-      </div>
-    </section>
+    <div id="heroList">
+      <h3>Heldinnen die al zijn gedeeld:</h3>
+      <ul id="heroes">
+        <!-- Heldinnen komen hier -->
+      </ul>
+      <p id="thanksMessage" style="color: green; display: none; margin-top: 1rem;">Bedankt voor het delen van jouw heldin!</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Formulier voor het indienen van heldin
+  const form = document.getElementById("heroForm");
+  const heroNameInput = document.getElementById("heroName");
+  const heroStoryInput = document.getElementById("heroStory");
+  const heroList = document.getElementById("heroes");
+  const thanksMessage = document.getElementById("thanksMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Voorkomt dat de pagina opnieuw laadt bij het indienen van het formulier
+
+    // Verkrijg de naam en het verhaal
+    const heroName = heroNameInput.value.trim();
+    const heroStory = heroStoryInput.value.trim();
+
+    if (heroName && heroStory) {
+      // Maak een nieuw lijstitem voor de heldin
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `<strong>${heroName}</strong>: ${heroStory}`;
+      
+      // Voeg het item toe aan de lijst van heldinnen
+      heroList.appendChild(listItem);
+
+      // Toon het bedankbericht
+      thanksMessage.style.display = "block";
+
+      // Reset het formulier
+      form.reset();
+    }
+  });
+</script>
+
 
 
     <!-- Sectie: Dit Project -->
