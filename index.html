@@ -618,6 +618,7 @@ const resultDiv = document.getElementById("quizResult");
 const retryButton = document.getElementById("retryQuiz");
 
 function generateQuiz() {
+  console.log("Generating quiz..."); // Debugging log
   quizContainer.innerHTML = "";
   questions.forEach((q, i) => {
     const div = document.createElement("div");
@@ -661,6 +662,7 @@ retryButton.addEventListener("click", () => {
   generateQuiz();
 });
 
+// Zorg ervoor dat de quiz correct wordt gegenereerd
 generateQuiz();
 </script>
 
