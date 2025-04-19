@@ -567,16 +567,42 @@ retryButton.addEventListener("click", () => {
 
 generateQuiz();
 </script>
-<style>
-  #verzetQuiz {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh; /* Maakt het scherm 100% van de hoogte */
-    text-align: center;
-  }
-</style>
+<head>
+  <style>
+    /* Maak de quiz gecentreerd zonder het volledige scherm te vullen */
+    #quiz {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 50px; /* Voeg wat ruimte bovenaan toe zodat het niet te dicht bij de top staat */
+    }
+
+    #verzetQuiz {
+      max-width: 600px; /* Beperk de breedte van de quiz, zodat het niet te groot is */
+      width: 100%;
+    }
+
+    #quizResult, #retryQuiz {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Sectie: Quiz -->
+  <section id="quiz" class="content-section">
+    <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
+    <form id="verzetQuiz">
+      <div id="quizContainer"></div>
+      <button type="submit">Bekijk resultaat</button>
+    </form>
+    <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
+    <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
+  </section>
+</body>
+
 
 </body>
 </html>
