@@ -206,52 +206,52 @@
 </section>
 
 <script>
-  const slides = [
+  const carrouselData = [
     {
-      img: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Civilian_Bravery_Awards_during_the_Second_World_War_HU55451.jpg", 
-      text: "<strong>Andrée de Jongh</strong> leidde de Comet ontsnappingslijn en hielp honderden geallieerde piloten ontsnappen uit bezet gebied."
+      name: "Andrée de Jongh",
+      img: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Civilian_Bravery_Awards_during_the_Second_World_War_HU55451.jpg",
+      text: "Leidde de Comet ontsnappingslijn en hielp honderden piloten vluchten naar Spanje."
     },
     {
+      name: "Freddie Oversteegen",
       img: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRf9389VYM0GNewwOlMkGasxYkm5kOCqnW6BCYN8iCP24N97cmEYHFMLfRWkqFKAlkgkXrrrDpuV7yrc-vTxG2n_A", 
-      text: "<strong>Freddie Oversteegen</strong> was pas 14 toen ze bij het verzet ging. Ze saboteerde bruggen en spoorlijnen en hielp Joden onderduiken."
+      text: "Was pas 14 toen ze bij het verzet ging. Ze saboteerde bruggen en spoorlijnen en hielp Joden onderduiken."
     },
     {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe-MDQczWvUxeI6v6Mli-XkAesSZoonw1IxNT_t0QkTYtWmkeTqUaI5lpZ9_NRyQtM9IU3dqv6UoUoGTfuY_ogJw", 
-      text: "<strong>Hannie Schaft</strong>, bekend als 'het meisje met het rode haar', was een van de meest beruchte verzetsstrijders van Nederland."
+      name: "Hannie Schaft",
+      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe-MDQczWvUxeI6v6Mli-XkAesSZoonw1IxNT_t0QkTYtWmkeTqUaI5lpZ9_NRyQtM9IU3dqv6UoUoGTfuY_ogJw",  
+      text: "Bekend als 'het meisje met het rode haar'. Ze was een van de meest beruchte verzetsstrijders van Nederland."
     },
     {
-      img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe-MDQczWvUxeI6v6Mli-XkAesSZoonw1IxNT_t0QkTYtWmkeTqUaI5lpZ9_NRyQtM9IU3dqv6UoUoGTfuY_ogJw", 
-      text: "<strong>Nancy Wake</strong> was een Australische verzetsheldin die zo effectief was dat de Gestapo haar 'de witte muis' noemde."
+      name: "Nancy Wake",
+      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Nancy_Wake_%281945%29.jpg/500px-Nancy_Wake_%281945%29.jpg",  
+      text: "Australische verzetsheldin die door de Gestapo 'de witte muis' werd genoemd vanwege haar effectiviteit in het verzet."
     }
   ];
 
-  let currentIndex = 0;
+  let currentSlide = 0;
 
-  function updateSlide() {
-    const image = document.getElementById("carouselImage");
-    const text = document.getElementById("carouselText");
-
-    // Veilig de naam halen uit de tekst
-    const name = slides[currentIndex].text.match(/<strong>(.*?)<\/strong>/)[1];
-    
-    // Update de afbeelding en de tekst
-    image.src = slides[currentIndex].img;
-    image.alt = name;  // Gebruik de naam voor de alt-text
-    text.innerHTML = slides[currentIndex].text;
-  }
-
-  function previousSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateSlide();
+  function updateCarousel() {
+    const image = document.getElementById('carouselImage');
+    const text = document.getElementById('carouselText');
+    const item = carrouselData[currentSlide];
+    image.src = item.img;
+    image.alt = item.name;  // Zorg ervoor dat alt-tekst de naam van de vrouw is
+    text.innerHTML = `<strong>${item.name}</strong>: ${item.text}`;
   }
 
   function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateSlide();
+    currentSlide = (currentSlide + 1) % carrouselData.length;
+    updateCarousel();
   }
 
-  // Start de carrousel met de eerste afbeelding
-  updateSlide();
+  function previousSlide() {
+    currentSlide = (currentSlide - 1 + carrouselData.length) % carrouselData.length;
+    updateCarousel();
+  }
+
+  // Zorg ervoor dat de carrousel wordt bijgewerkt wanneer de pagina wordt geladen
+  window.onload = updateCarousel;
 </script>
 
 
@@ -342,7 +342,7 @@
   if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
 
   const result = document.getElementById('quizResult');
-  result.textContent = `Je behaalde ${score} van de 3 punten.`;
+  result.textContent = `Je behaalde ${score} van de 10 punten.`;
 });
 const carrouselData = [
   {
