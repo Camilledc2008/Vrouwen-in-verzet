@@ -484,19 +484,20 @@ function previousSlide() {
 }
 
   </script>
-  <script>
-  function showSection(id) {
-    // Verberg alle secties
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach(section => section.classList.remove('active'));
+ <script>
+function showSection(id) {
+  // Verberg alle secties
+  const sections = document.querySelectorAll('.content-section');
+  sections.forEach(section => section.classList.remove('active'));
 
-    // Toon alleen de geselecteerde sectie
-    const target = document.getElementById(id);
-    if (target) {
-      target.classList.add('active');
-    }
+  // Toon alleen de geselecteerde sectie
+  const target = document.getElementById(id);
+  if (target) {
+    target.classList.add('active');
   }
+}
 </script>
+
 <!-- Sectie: Quiz -->
 <section id="quiz" class="content-section">
   <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
@@ -509,6 +510,7 @@ function previousSlide() {
 </section>
 
 <script>
+// Quizdata
 const questions = [
   {
     question: "Wat was de rol van Andrée de Jongh tijdens WOII?",
@@ -612,6 +614,7 @@ const questions = [
   }
 ];
 
+// Quizgeneratie en logica
 const quizContainer = document.getElementById("quizContainer");
 const form = document.getElementById("verzetQuiz");
 const resultDiv = document.getElementById("quizResult");
@@ -663,9 +666,3 @@ retryButton.addEventListener("click", () => {
 
 generateQuiz();
 </script>
-
-
-
-
-</body>
-</html>
