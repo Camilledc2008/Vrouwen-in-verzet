@@ -368,52 +368,17 @@
 
   // Initial quiz generation
   generateQuiz();
-</script>
-
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <title>Verzetsvrouwen</title>
-  <style>
-    .carousel-image {
-      width: 300px;
-      height: 400px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-
-    .content-section {
-      margin: 2rem auto;
-      text-align: center;
-    }
-
-    button {
-      font-size: 1.5rem;
-      margin: 0 0.5rem;
-    }
-  </style>
-</head>
-<body>
-
-<section id="intro" class="content-section">
-  <h2>Thema's</h2>
-  <button onclick="showCarrouselSection()">Ontmoet verzetsvrouwen</button>
-</section>
-
-<section id="carrousel" class="content-section" style="display: none;">
+<section id="carrousel" class="content-section">
   <h2>Ontmoet deze inspirerende vrouwen uit het verzet</h2>
   <div style="display: flex; flex-direction: column; align-items: center;">
-    <img id="carouselImage" src="" alt="" class="carousel-image" />
-    <p id="carouselText" style="margin-top: 1rem; max-width: 600px;"></p>
+    <img id="carouselImage" src="" alt="" style="width: 300px; height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+    <p id="carouselText" style="margin-top: 1rem; max-width: 600px; text-align: center;"></p>
     <div style="margin-top: 1rem;">
       <button onclick="previousSlide()">⬅️</button>
       <button onclick="nextSlide()">➡️</button>
     </div>
   </div>
 </section>
-
 
 <script>
   const carrouselData = [
@@ -439,15 +404,17 @@
     }
   ];
 
-    let currentIndex = 0;
+  
+  let currentIndex = 0;
 
   function updateSlide() {
     const image = document.getElementById("carouselImage");
     const text = document.getElementById("carouselText");
 
-    image.src = carrouselData[currentIndex].img;
-    image.alt = carrouselData[currentIndex].name;
-    text.innerHTML = `<strong>${carrouselData[currentIndex].name}</strong>: ${carrouselData[currentIndex].text}`;
+    const current = carrouselData[currentIndex];
+    image.src = current.img;
+    image.alt = current.name;
+    text.innerHTML = `<strong>${current.name}</strong>: ${current.text}`;
   }
 
   function previousSlide() {
@@ -460,14 +427,9 @@
     updateSlide();
   }
 
-  function showCarrouselSection() {
-    const section = document.getElementById("carrousel");
-    section.style.display = "block";
-    updateSlide();
-    section.scrollIntoView({ behavior: "smooth" });
-  }
+  // 🚀 Laat de eerste slide meteen zien zodra pagina geladen is
+  document.addEventListener("DOMContentLoaded", updateSlide);
 </script>
-
 
     <!-- Sectie: WOII -->
     <section id="woii" class="content-section">
