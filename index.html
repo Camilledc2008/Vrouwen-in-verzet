@@ -474,22 +474,26 @@ function previousSlide() {
 }
 
   </script>
- <script>
-function showSection(id) {
-  // Verberg alle secties
-  const sections = document.querySelectorAll('.content-section');
-  sections.forEach(section => section.classList.remove('active'));
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz over vrouwen in het verzet</title>
+  <style>
+    .content-section {
+      display: none; /* Alle secties verborgen */
+    }
 
-  // Toon alleen de geselecteerde sectie
-  const target = document.getElementById(id);
-  if (target) {
-    target.classList.add('active');
-  }
-}
-</script>
+    .content-section.active {
+      display: block; /* Alleen de actieve sectie wordt getoond */
+    }
+  </style>
+</head>
+<body>
 
 <!-- Sectie: Quiz -->
-<section id="quiz" class="content-section">
+<section id="quiz" class="content-section active"> <!-- Actief maken zodat deze standaard zichtbaar is -->
   <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
   <form id="verzetQuiz">
     <div id="quizContainer"></div>
@@ -611,7 +615,7 @@ const resultDiv = document.getElementById("quizResult");
 const retryButton = document.getElementById("retryQuiz");
 
 function generateQuiz() {
-  quizContainer.innerHTML = "";
+  quizContainer.innerHTML = ""; // Maak de quizcontainer leeg
   questions.forEach((q, i) => {
     const div = document.createElement("div");
     div.innerHTML = `
@@ -624,11 +628,12 @@ function generateQuiz() {
     `;
     quizContainer.appendChild(div);
   });
-  retryButton.style.display = "none";
+  retryButton.style.display = "none"; // Verberg de herstartknop in het begin
 }
 
+// Verwerken van het formulier na het inleveren
 form.addEventListener("submit", function(e) {
-  e.preventDefault();
+  e.preventDefault(); // Voorkom dat het formulier normaal wordt ingediend
   let score = 0;
   let feedback = [];
 
@@ -645,14 +650,18 @@ form.addEventListener("submit", function(e) {
   });
 
   resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}<br><br>${feedback.join('<br>')}`;
-  retryButton.style.display = "inline-block";
+  retryButton.style.display = "inline-block"; // Toon de herstartknop
 });
 
+// Herstart de quiz bij klikken op de herstartknop
 retryButton.addEventListener("click", () => {
-  form.reset();
-  resultDiv.innerHTML = "";
-  generateQuiz();
+  form.reset(); // Reset de quiz
+  resultDiv.innerHTML = ""; // Verwijder het resultaat
+  generateQuiz(); // Genereer de quiz opnieuw
 });
 
-generateQuiz();
+generateQuiz(); // Genereer de quiz bij het laden van de pagina
 </script>
+
+</body>
+</html>
