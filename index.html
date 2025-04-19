@@ -371,7 +371,7 @@
 <section id="carrousel" class="content-section">
   <h2>Ontmoet deze inspirerende vrouwen uit het verzet</h2>
   <div style="display: flex; flex-direction: column; align-items: center;">
-    <img id="carouselImage" src="" alt="" style="width: 300px; height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+    <img id="carouselImage" src="" alt="" class="carousel-image" style="width: 300px; height: 400px; object-fit: cover; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
     <p id="carouselText" style="margin-top: 1rem; max-width: 600px; text-align: center;"></p>
     <div style="margin-top: 1rem;">
       <button onclick="previousSlide()">⬅️</button>
@@ -404,8 +404,7 @@
     }
   ];
 
-  
-  let currentIndex = 0;
+ let currentIndex = 0;
 
   function updateSlide() {
     const image = document.getElementById("carouselImage");
@@ -427,10 +426,9 @@
     updateSlide();
   }
 
-  // 🚀 Laat de eerste slide meteen zien zodra pagina geladen is
+  // Zorg dat de eerste slide meteen getoond wordt
   document.addEventListener("DOMContentLoaded", updateSlide);
 </script>
-
     <!-- Sectie: WOII -->
     <section id="woii" class="content-section">
       <h2>Vrouwen in WOII</h2>
