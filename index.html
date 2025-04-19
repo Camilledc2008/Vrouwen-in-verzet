@@ -272,31 +272,127 @@
     </section>
 
    
-    <!-- Sectie: Jouw Heldin -->
-    <section id="heldin" class="content-section">
-      <h2>Jouw Heldin</h2>
-      <p>Ken jij een vrouw die een inspirerende heldin is? Vul hieronder haar naam en verhaal in en deel haar moedige daden met anderen!</p>
+  <!-- Sectie: Jouw Heldin -->
+<section id="heldin" class="content-section">
+  <h2>Jouw Heldin</h2>
+  <p>Ken jij een vrouw die een inspirerende heldin is? Vul hieronder haar naam en verhaal in en deel haar moedige daden met anderen!</p>
 
-      <div class="form-section">
-        <form id="heroForm">
-          <label for="heroName">Naam van je heldin:</label>
-          <input type="text" id="heroName" required>
+  <div class="form-section">
+    <form id="heroForm">
+      <label for="heroName">Naam van je heldin:</label>
+      <input type="text" id="heroName" required>
 
-          <label for="heroStory">Verhaal van je heldin:</label>
-          <textarea id="heroStory" rows="4" required></textarea>
+      <label for="heroStory">Verhaal van je heldin:</label>
+      <textarea id="heroStory" rows="4" required></textarea>
 
-          <button type="submit">Indienen</button>
-        </form>
+      <button type="submit">Indienen</button>
+    </form>
 
-        <div id="heroList">
-          <h3>Heldinnen die al zijn gedeeld:</h3>
-          <ul id="heroes">
-            <!-- Heldinnen komen hier -->
-          </ul>
-          <p id="thanksMessage" style="color: green; display: none; margin-top: 1rem;">Bedankt voor het delen van jouw heldin!</p>
-        </div>
+    <div id="heroList">
+      <h3>Heldinnen die al zijn gedeeld:</h3>
+      <div id="heroes">
+        <!-- Hier komen de tekstballonnetjes -->
       </div>
-    </section>
+      <p id="thanksMessage" style="color: green; display: none; margin-top: 1rem;">Bedankt voor het delen van jouw heldin!</p>
+    </div>
+  </div>
+</section>
+
+<!-- Voeg deze CSS toe voor de tekstballonnetjes -->
+<style>
+  #heroes {
+    margin-top: 20px;
+  }
+
+  .hero-bubble {
+    background-color: #f2f2f2;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 10px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-bubble strong {
+    font-weight: bold;
+  }
+
+  #thanksMessage {
+    color: green;
+    font-weight: bold;
+    text-align: center;
+  }
+</style>
+
+<script>
+  // Formulier voor het indienen van heldin
+  const form = document.getElementById("heroForm");
+  const heroNameInput = document.getElementById("heroName");
+  const heroStoryInput = document.getElementById("heroStory");
+  const heroList = document.getElementById("heroes");
+  const thanksMessage = document.getElementById("thanksMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Voorkomt dat de pagina opnieuw laadt bij het indienen van het formulier
+
+    // Verkrijg de naam en het verhaal
+    const heroName = heroNameInput.value.trim();
+    const heroStory = heroStoryInput.value.trim();
+
+    if (heroName && heroStory) {
+      // Maak een nieuwe div voor de tekstballon
+      const bubble = document.createElement("div");
+      bubble.classList.add("hero-bubble");
+      bubble.innerHTML = `<strong>${heroName}</strong>: ${heroStory}`;
+      
+      // Voeg de tekstballon toe aan de lijst van heldinnen
+      heroList.appendChild(bubble);
+
+      // Toon het bedankbericht
+      thanksMessage.style.display = "block";
+
+      // Reset het formulier
+      form.reset();
+    }
+  });
+</script>
+
+
+<script>
+  // Formulier voor het indienen van heldin
+  const form = document.getElementById("heroForm");
+  const heroNameInput = document.getElementById("heroName");
+  const heroStoryInput = document.getElementById("heroStory");
+  const heroList = document.getElementById("heroes");
+  const thanksMessage = document.getElementById("thanksMessage");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault(); // Voorkomt dat de pagina opnieuw laadt bij het indienen van het formulier
+
+    // Verkrijg de naam en het verhaal
+    const heroName = heroNameInput.value.trim();
+    const heroStory = heroStoryInput.value.trim();
+
+    if (heroName && heroStory) {
+      // Maak een nieuw lijstitem voor de heldin
+      const listItem = document.createElement("li");
+      listItem.innerHTML = `<strong>${heroName}</strong>: ${heroStory}`;
+      
+      // Voeg het item toe aan de lijst van heldinnen
+      heroList.appendChild(listItem);
+
+      // Toon het bedankbericht
+      thanksMessage.style.display = "block";
+
+      // Reset het formulier
+      form.reset();
+    }
+  });
+</script>
+
+
 
     <!-- Sectie: Dit Project -->
     <section id="maker" class="content-section">
@@ -401,6 +497,7 @@ function previousSlide() {
     }
   }
 </script>
+<!-- Sectie: Quiz -->
 <section id="quiz" class="content-section">
   <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
   <form id="verzetQuiz">
@@ -410,7 +507,6 @@ function previousSlide() {
   <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
   <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
 </section>
-
 
 <script>
 const questions = [
@@ -567,68 +663,7 @@ retryButton.addEventListener("click", () => {
 
 generateQuiz();
 </script>
-<head>
-  <style>
-    /* Maak de quiz gecentreerd zonder het volledige scherm te vullen */
-    #quiz {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      margin-top: 50px; /* Voeg wat ruimte bovenaan toe zodat het niet te dicht bij de top staat */
-    }
 
-    #verzetQuiz {
-      max-width: 600px; /* Beperk de breedte van de quiz, zodat het niet te groot is */
-      width: 100%;
-    }
-
-    #quizResult, #retryQuiz {
-      margin-top: 20px;
-    }
-  </style>
-</head>
-
-<head>
-  <style>
-    /* Zorg ervoor dat de quiz altijd netjes in het midden van de pagina komt */
-    #quiz {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      margin-top: 50px;
-      padding: 20px; /* Voeg padding toe om de quiz wat ruimte te geven */
-      background-color: #f4f4f4; /* Maak het visueel onderscheidend */
-      border-radius: 10px; /* Maak de hoeken afgerond */
-      width: 100%;
-      max-width: 600px; /* Beperk de breedte zodat de quiz niet te breed is */
-      margin-left: auto;
-      margin-right: auto; /* Center de quiz horizontaal */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Voeg een lichte schaduw toe */
-    }
-
-    /* Zorg ervoor dat de quiz in het midden van de pagina blijft */
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh; /* Zorg ervoor dat de body altijd minimaal de hoogte van het scherm heeft */
-      margin: 0;
-      background-color: #f9f9f9;
-    }
-
-    #verzetQuiz {
-      width: 100%;
-    }
-
-    #quizResult, #retryQuiz {
-      margin-top: 20px;
-    }
-  </style>
-</head>
 
 
 
