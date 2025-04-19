@@ -487,8 +487,7 @@ function showSection(id) {
   }
 }
 </script>
-
-<!-- Sectie: Quiz -->
+</script>
 <section id="quiz" class="content-section">
   <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
   <form id="verzetQuiz">
@@ -499,8 +498,8 @@ function showSection(id) {
   <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
 </section>
 
+
 <script>
-// Quizdata
 const questions = [
   {
     question: "Wat was de rol van Andrée de Jongh tijdens WOII?",
@@ -604,7 +603,6 @@ const questions = [
   }
 ];
 
-// Quizgeneratie en logica
 const quizContainer = document.getElementById("quizContainer");
 const form = document.getElementById("verzetQuiz");
 const resultDiv = document.getElementById("quizResult");
@@ -654,8 +652,8 @@ retryButton.addEventListener("click", () => {
   generateQuiz();
 });
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  generateQuiz();
-});
+generateQuiz();
 </script>
+
+</body>
+</html>
