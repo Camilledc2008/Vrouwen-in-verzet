@@ -297,28 +297,7 @@
         </div>
       </div>
     </section>
-<script>
-  document.getElementById("heroForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // Voorkomt dat het formulier de pagina herlaadt bij indienen
 
-    // Verkrijg de naam en het verhaal van de heldin
-    const heroName = document.getElementById("heroName").value;
-    const heroStory = document.getElementById("heroStory").value;
-
-    // Maak een nieuw lijstitem voor de heldin
-    const heroListItem = document.createElement("li");
-    heroListItem.innerHTML = `<strong>${heroName}</strong>: ${heroStory}`;
-
-    // Voeg het nieuwe lijstitem toe aan de lijst van heldinnen
-    document.getElementById("heroes").appendChild(heroListItem);
-
-    // Toon een bedankbericht
-    document.getElementById("thanksMessage").style.display = "block";
-
-    // Reset het formulier na indienen
-    document.getElementById("heroForm").reset();
-  });
-</script>
 
     <!-- Sectie: Dit Project -->
     <section id="maker" class="content-section">
