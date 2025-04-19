@@ -192,7 +192,6 @@
 
 
 
-
 <section id="carrousel" class="content-section">
   <h2>Ontmoet deze inspirerende vrouwen uit het verzet</h2>
   <div style="display: flex; flex-direction: column; align-items: center;">
@@ -231,9 +230,13 @@
   function updateSlide() {
     const image = document.getElementById("carouselImage");
     const text = document.getElementById("carouselText");
+
+    // Veilig de naam halen uit de tekst
+    const name = slides[currentIndex].text.match(/<strong>(.*?)<\/strong>/)[1];
+    
     // Update de afbeelding en de tekst
     image.src = slides[currentIndex].img;
-    image.alt = slides[currentIndex].text.match(/<strong>(.*?)<\/strong>/)[1];
+    image.alt = name;  // Gebruik de naam voor de alt-text
     text.innerHTML = slides[currentIndex].text;
   }
 
@@ -250,6 +253,7 @@
   // Start de carrousel met de eerste afbeelding
   updateSlide();
 </script>
+
 
 
     <!-- Sectie: WOII -->
