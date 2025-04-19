@@ -352,39 +352,46 @@
   </div>
 </section>
 <script>
-  const slides = [
-    {
-      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andree_de_Jongh.jpg/440px-Andree_de_Jongh.jpg",
-      text: "<strong>Andrée de Jongh</strong> leidde de Comet ontsnappingslijn en hielp honderden piloten vluchten naar Spanje."
-    },
-    {
-      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Hannie_Schaft_1945.jpg/440px-Hannie_Schaft_1945.jpg",
-      text: "<strong>Hannie Schaft</strong>, ook wel het 'meisje met het rode haar', pleegde sabotage en aanslagen tegen de nazi’s."
-    },
-    {
-      img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Portrait_of_Wilhelmina_Berkhout.jpg/440px-Portrait_of_Wilhelmina_Berkhout.jpg",
-      text: "<strong>Wilhelmina Berkhout</strong> hielp Joodse kinderen onderduiken en verspreidde illegale kranten."
-    }
-  ];
-
-  let currentSlide = 0;
-
-  function showSlide(index) {
-    const image = document.getElementById("carouselImage");
-    const text = document.getElementById("carouselText");
-
-    currentSlide = (index + slides.length) % slides.length; // cirkel door de slides
-
-    image.src = slides[currentSlide].img;
-    text.innerHTML = slides[currentSlide].text;
+ const slides = [
+  {
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andree_de_Jongh.jpg/440px-Andree_de_Jongh.jpg",
+    text: "<strong>Andrée de Jongh</strong> leidde de Comet ontsnappingslijn en hielp honderden piloten vluchten naar Spanje."
+  },
+  {
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Hannie_Schaft_1945.jpg/440px-Hannie_Schaft_1945.jpg",
+    text: "<strong>Hannie Schaft</strong>, ook wel het 'meisje met het rode haar', pleegde sabotage en aanslagen tegen de nazi’s."
+  },
+  {
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Portrait_of_Wilhelmina_Berkhout.jpg/440px-Portrait_of_Wilhelmina_Berkhout.jpg",
+    text: "<strong>Wilhelmina Berkhout</strong> hielp Joodse kinderen onderduiken en verspreidde illegale kranten."
   }
+];
 
-  function previousSlide() {
-    showSlide(currentSlide - 1);
-  }
+let currentSlide = 0;
 
-  function nextSlide() {
-    showSlide(currentSlide + 1);
+function showSlide(index) {
+  const image = document.getElementById("carouselImage");
+  const text = document.getElementById("carouselText");
+
+  currentSlide = (index + slides.length) % slides.length; // cirkel door de slides
+
+  image.src = slides[currentSlide].img;
+  text.innerHTML = slides[currentSlide].text;
+}
+
+// Functie om naar de vorige afbeelding te gaan
+function previousSlide() {
+  showSlide(currentSlide - 1);
+}
+
+// Functie om naar de volgende afbeelding te gaan
+function nextSlide() {
+  showSlide(currentSlide + 1);
+}
+
+// Laad de eerste afbeelding bij het openen van de pagina
+showSlide(currentSlide);
+
   }
 </script>
 
