@@ -354,11 +354,7 @@
     });
 
     // Resultaat weergeven
-    if (unanswered > 0) {
-      resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}. Je hebt ${unanswered} vraag(s) niet beantwoord.<br><br>${feedback.join('<br>')}`;
-    } else {
-      resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}<br><br>${feedback.join('<br>')}`;
-    }
+    resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}<br><br>${feedback.join('<br>')}`;
 
     // Show the retry button
     retryButton.style.display = "inline-block";
@@ -374,6 +370,7 @@
   // Initial quiz generation
   generateQuiz();
 </script>
+
 
 <section id="carrousel" class="content-section">
   <h2>Ontmoet deze inspirerende vrouwen uit het verzet</h2>
