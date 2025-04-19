@@ -191,7 +191,7 @@
   <p>Het ondernemerschap voor vrouwen heeft vaak te maken met extra obstakels. Het verkrijgen van financiering, de perceptie van vrouwen als ondernemers en de balans tussen werk en gezin zijn slechts enkele van de uitdagingen die we moeten overwinnen. Toch zie ik dagelijks inspirerende vrouwen die hun eigen bedrijven opbouwen en het verschil maken.</p>
 </section>
 
-  <!-- Sectie: Quiz -->
+<!-- Sectie: Quiz -->
 <section id="quiz" class="content-section">
   <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
   <form id="verzetQuiz">
@@ -199,6 +199,7 @@
     <button type="submit">Bekijk resultaat</button>
   </form>
   <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
+  <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
 </section>
 
 <script>
@@ -308,35 +309,72 @@
   const quizContainer = document.getElementById("quizContainer");
   const form = document.getElementById("verzetQuiz");
   const resultDiv = document.getElementById("quizResult");
+  const retryButton = document.getElementById("retryQuiz");
 
   // Quiz genereren
-  questions.forEach((q, index) => {
-    const div = document.createElement("div");
-    div.innerHTML = `
-      <p><strong>${index + 1}. ${q.question}</strong></p>
-      ${q.options.map((opt, i) => `
-        <label>
-          <input type="radio" name="question${index}" value="${i}">
-          ${opt}
-        </label><br>
-      `).join("")}
-      <br>
-    `;
-    quizContainer.appendChild(div);
-  });
+  function generateQuiz() {
+    quizContainer.innerHTML = ''; // Clear previous quiz
+
+    questions.forEach((q, index) => {
+      const div = document.createElement("div");
+      div.innerHTML = `
+        <p><strong>${index + 1}. ${q.question}</strong></p>
+        ${q.options.map((opt, i) => `
+          <label>
+            <input type="radio" name="question${index}" value="${i}">
+            ${opt}
+          </label><br>
+        `).join("")}
+        <br>
+      `;
+      quizContainer.appendChild(div);
+    });
+
+    // Hide the retry button when quiz is being filled
+    retryButton.style.display = "none";
+  }
 
   form.addEventListener("submit", function(e) {
     e.preventDefault();
     let score = 0;
+    let unanswered = 0;
+    let feedback = [];
+
     questions.forEach((q, i) => {
       const selected = form.querySelector(`input[name="question${i}"]:checked`);
-      if (selected && parseInt(selected.value) === q.answer) {
+      if (!selected) {
+        unanswered++;
+        feedback.push(`<strong>Vraag ${i + 1}:</strong> Niet beantwoord.`);
+      } else if (parseInt(selected.value) === q.answer) {
         score++;
+        feedback.push(`<strong>Vraag ${i + 1}:</strong> Juist!`);
+      } else {
+        feedback.push(`<strong>Vraag ${i + 1}:</strong> Fout! Het juiste antwoord was: "${q.options[q.answer]}".`);
       }
     });
-    resultDiv.textContent = `Je score: ${score} van de ${questions.length}`;
+
+    // Resultaat weergeven
+    if (unanswered > 0) {
+      resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}. Je hebt ${unanswered} vraag(s) niet beantwoord.<br><br>${feedback.join('<br>')}`;
+    } else {
+      resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}<br><br>${feedback.join('<br>')}`;
+    }
+
+    // Show the retry button
+    retryButton.style.display = "inline-block";
   });
+
+  retryButton.addEventListener("click", function() {
+    // Reset the form and results
+    form.reset();
+    resultDiv.innerHTML = "";
+    generateQuiz();
+  });
+
+  // Initial quiz generation
+  generateQuiz();
 </script>
+
 
 <section id="carrousel" class="content-section">
   <h2>Ontmoet deze inspirerende vrouwen uit het verzet</h2>
