@@ -370,8 +370,12 @@
   generateQuiz();
 </script>
 
-
-<section id="carrousel" class="content-section">
+<!-- Knop om de carrousel te tonen -->
+<section id="intro" class="content-section">
+  <h2>Thema's</h2>
+  <button onclick="showCarrouselSection()">Ontmoet verzetsvrouwen</button>
+</section>
+<section id="carrousel" class="content-section" style="display: none;">
   <h2>Ontmoet deze inspirerende vrouwen uit het verzet</h2>
   <div style="display: flex; flex-direction: column; align-items: center;">
     <!-- Begin met een lege afbeelding (src is leeg) -->
@@ -404,14 +408,18 @@
   ];
 
   let currentIndex = 0;
+function showCarrouselSection() {
+  document.getElementById('carrousel').style.display = 'block'; // Maak de carrousel zichtbaar
+  updateSlide(); // Update de inhoud van de carrousel
+}
 
-  function updateSlide() {
+function updateSlide() {
     const image = document.getElementById("carouselImage");
     const text = document.getElementById("carouselText");
-    // Update de afbeelding en de tekst
     image.src = slides[currentIndex].img;
     image.alt = slides[currentIndex].text.match(/<strong>(.*?)<\/strong>/)[1];
     text.innerHTML = slides[currentIndex].text;
+
   }
 
   function previousSlide() {
