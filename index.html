@@ -544,6 +544,20 @@ function previousSlide() {
 }
 
   </script>
+  <script>
+  function showSection(id) {
+    // Verberg alle secties
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => section.classList.remove('active'));
+
+    // Toon alleen de geselecteerde sectie
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+    }
+  }
+</script>
+
 </body>
 </html>
 
