@@ -118,6 +118,7 @@
     <button onclick="showSection('gezondheid')">Gezondheid</button>
     <button onclick="showSection('gelijkheid')">Gelijkheid</button>
     <button onclick="showSection('werkvloer')">Werkvloer</button>
+    <button onclick="showSection('carrousel')">Verzet in Beeld</button>
     <button onclick="showSection('quiz')">Quiz</button>
     <button onclick="showSection('woii')">WOII</button>
     <button onclick="showSection('heldin')">Jouw Heldin</button>
@@ -214,6 +215,19 @@
   <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
 </section>
 
+<section id="carrousel" class="content-section">
+  <h2>Ontmoet deze inspirerende vrouwen uit het verzet</h2>
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img id="carouselImage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andree_de_Jongh.jpg/440px-Andree_de_Jongh.jpg" alt="Andrée de Jongh" style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
+    <p id="carouselText" style="margin-top: 1rem; max-width: 600px; text-align: center;">
+      <strong>Andrée de Jongh</strong> leidde de Comet ontsnappingslijn en hielp honderden piloten vluchten naar Spanje.
+    </p>
+    <div style="margin-top: 1rem;">
+      <button onclick="previousSlide()">⬅️</button>
+      <button onclick="nextSlide()">➡️</button>
+    </div>
+  </div>
+</section>
 
     <!-- Sectie: WOII -->
     <section id="woii" class="content-section">
@@ -327,6 +341,48 @@
   const result = document.getElementById('quizResult');
   result.textContent = `Je behaalde ${score} van de 3 punten.`;
 });
+const carrouselData = [
+  {
+    name: "Andrée de Jongh",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Andree_de_Jongh.jpg/440px-Andree_de_Jongh.jpg",
+    text: "Leidde de Comet ontsnappingslijn en hielp honderden piloten vluchten naar Spanje."
+  },
+  {
+    name: "Lucie Dorgelo",
+    img: "https://upload.wikimedia.org/wikipedia/commons/5/5b/Lucie_Dorgelo.png",
+    text: "Verspreidde verzetskranten en hielp onderduikers. Pionier voor vrouwen in het verzet."
+  },
+  {
+    name: "Mathilde Vlamynck",
+    img: "https://upload.wikimedia.org/wikipedia/commons/0/05/Women_resistance_1940s.jpg",
+    text: "Belgische verzetsvrouw die piloten hielp ontsnappen via geheime netwerken."
+  },
+  {
+    name: "Madeleine Balthazar",
+    img: "https://upload.wikimedia.org/wikipedia/commons/e/e4/Nurse_WW2.jpg",
+    text: "Verpleegster die in het geheim gewonde soldaten verzorgde tijdens WOII in België."
+  }
+];
+
+let currentSlide = 0;
+
+function updateCarousel() {
+  const image = document.getElementById('carouselImage');
+  const text = document.getElementById('carouselText');
+  const item = carrouselData[currentSlide];
+  image.src = item.img;
+  text.innerHTML = `<strong>${item.name}</strong>: ${item.text}`;
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % carrouselData.length;
+  updateCarousel();
+}
+
+function previousSlide() {
+  currentSlide = (currentSlide - 1 + carrouselData.length) % carrouselData.length;
+  updateCarousel();
+}
 
   </script>
 </body>
