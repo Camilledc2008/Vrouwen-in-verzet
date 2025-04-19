@@ -272,113 +272,30 @@
     </section>
 
    
-  <!-- Sectie: Jouw Heldin -->
-<section id="heldin" class="content-section">
-  <h2>Jouw Heldin</h2>
-  <p>Ken jij een vrouw die een inspirerende heldin is? Vul hieronder haar naam en verhaal in en deel haar moedige daden met anderen!</p>
+    <!-- Sectie: Jouw Heldin -->
+    <section id="heldin" class="content-section">
+      <h2>Jouw Heldin</h2>
+      <p>Ken jij een vrouw die een inspirerende heldin is? Vul hieronder haar naam en verhaal in en deel haar moedige daden met anderen!</p>
 
-  <div class="form-section">
-    <form id="heroForm">
-      <label for="heroName">Naam van je heldin:</label>
-      <input type="text" id="heroName" required>
+      <div class="form-section">
+        <form id="heroForm">
+          <label for="heroName">Naam van je heldin:</label>
+          <input type="text" id="heroName" required>
 
-      <label for="heroStory">Verhaal van je heldin:</label>
-      <textarea id="heroStory" rows="4" required></textarea>
+          <label for="heroStory">Verhaal van je heldin:</label>
+          <textarea id="heroStory" rows="4" required></textarea>
 
-      <button type="submit">Indienen</button>
-    </form>
+          <button type="submit">Indienen</button>
+        </form>
 
-    <div id="heroList">
-      <h3>Heldinnen die al zijn gedeeld:</h3>
-      <div id="heroes">
-        <!-- Hier komen de tekstballonnetjes -->
+        <div id="heroList">
+          <h3>Heldinnen die al zijn gedeeld:</h3>
+          <ul id="heroes">
+            <!-- Heldinnen komen hier -->
+          </ul>
+          <p id="thanksMessage" style="color: green; display: none; margin-top: 1rem;">Bedankt voor het delen van jouw heldin!</p>
+        </div>
       </div>
-      <p id="thanksMessage" style="color: green; display: none; margin-top: 1rem;">Bedankt voor het delen van jouw heldin!</p>
-    </div>
-  </div>
-</section>
-
-<!-- Voeg deze CSS toe voor de tekstballonnetjes -->
-<style>
-  #heroes {
-    margin-top: 20px;
-  }
-
-  .hero-bubble {
-    background-color: #f2f2f2;
-    border-radius: 15px;
-    padding: 15px;
-    margin-bottom: 10px;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-
-  .hero-bubble strong {
-    font-weight: bold;
-  }
-
-  #thanksMessage {
-    color: green;
-    font-weight: bold;
-    text-align: center;
-  }
-</style>
-
-<!DOCTYPE html>
-<html lang="nl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vrouwen in het Verzet</title>
-  <style>
-    /* Basisstijl voor het verbergen van secties */
-    .content-section {
-      display: none;
-    }
-    .content-section.active {
-      display: block;
-    }
-
-    /* Stijlen voor de quiz en formulieren */
-    #quizResult {
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-
-    .question {
-      margin-bottom: 15px;
-    }
-
-    .question p {
-      font-weight: bold;
-    }
-
-    nav {
-      margin-bottom: 1rem;
-    }
-  </style>
-</head>
-<body>
-
-  <!-- Navigatie voor secties (deze komt maar één keer voor) -->
-  <nav>
-    <button onclick="showSection('quiz')">Quiz</button>
-    <button onclick="showSection('maker')">Dit Project</button>
-    <button onclick="showSection('hero')">Deel jouw Heldin</button>
-  </nav>
-
-  <main>
-    <!-- Sectie: Quiz -->
-    <section id="quiz" class="content-section active">
-      <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
-      <form id="verzetQuiz">
-        <div id="quizContainer"></div>
-        <button type="submit">Bekijk resultaat</button>
-      </form>
-      <div id="quizResult"></div>
-      <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
     </section>
 
     <!-- Sectie: Dit Project -->
@@ -386,147 +303,334 @@
       <h2>Dit Project</h2>
       <p>Ik ben Camille De Clercq, leerling aan GO! Atheneum Oudenaarde, en ik maakte deze website omdat ik vrouwen een stem wil geven – vroeger én nu. Te vaak worden hun verhalen vergeten of genegeerd in de geschiedenisboeken, op school of in het nieuws. Met dit project wil ik vergeten vrouwen eren, maar ook hedendaagse heldinnen zichtbaar maken. Vrouwen die inspireren, zorgen, bouwen, volhouden en het verschil maken. Deze site is een uitnodiging om stil te staan, te herinneren en vooral: om jouw heldin met de wereld te delen.</p>
     </section>
-
-    <!-- Sectie: Deel jouw Heldin -->
-    <section id="hero" class="content-section">
-      <h2>Deel jouw Heldin</h2>
-      <form id="heroForm">
-        <label for="heroName">Naam van de Heldin:</label>
-        <input type="text" id="heroName" required><br><br>
-        <label for="heroStory">Verhaal van de Heldin:</label><br>
-        <textarea id="heroStory" rows="4" required></textarea><br><br>
-        <button type="submit">Voeg toe</button>
-      </form>
-
-      <ul id="heroes"></ul>
-      <p id="thanksMessage" style="display: none;">Bedankt voor het delen!</p>
-    </section>
   </main>
 
   <script>
-    // Functie om secties zichtbaar te maken
     function showSection(sectionId) {
       const sections = document.querySelectorAll('.content-section');
-      sections.forEach(section => section.classList.remove('active'));
+      sections.forEach(section => {
+        section.classList.remove('active');
+      });
       document.getElementById(sectionId).classList.add('active');
     }
 
-    // Formulier voor het indienen van een heldin
-    const form = document.getElementById("heroForm");
-    const heroNameInput = document.getElementById("heroName");
-    const heroStoryInput = document.getElementById("heroStory");
-    const heroList = document.getElementById("heroes");
-    const thanksMessage = document.getElementById("thanksMessage");
-
-    form.addEventListener("submit", function (e) {
+    document.getElementById('heroForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      // Verkrijg de naam en het verhaal
-      const heroName = heroNameInput.value.trim();
-      const heroStory = heroStoryInput.value.trim();
 
-      if (heroName && heroStory) {
-        // Maak een nieuw lijstitem voor de heldin
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `<strong>${heroName}</strong>: ${heroStory}`;
-        
-        // Voeg het item toe aan de lijst van heldinnen
-        heroList.appendChild(listItem);
+      const heroName = document.getElementById('heroName').value;
+      const heroStory = document.getElementById('heroStory').value;
+      const heroList = document.getElementById('heroes');
+      const thanksMessage = document.getElementById('thanksMessage');
 
-        // Toon het bedankbericht
-        thanksMessage.style.display = "block";
+      const newHero = document.createElement('li');
+      newHero.innerHTML = `<strong>${heroName}</strong>: ${heroStory}`;
+      heroList.appendChild(newHero);
 
-        // Reset het formulier
-        form.reset();
-      }
+      document.getElementById('heroForm').reset();
+
+      thanksMessage.style.display = 'block';
+      setTimeout(() => {
+        thanksMessage.style.display = 'none';
+      }, 4000);
     });
+    document.getElementById('verzetQuiz').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  let score = 0;
+  if (document.querySelector('input[name="q1"]:checked')?.value === "b") score++;
+  if (document.querySelector('input[name="q2"]:checked')?.value === "b") score++;
+  if (document.querySelector('input[name="q3"]:checked')?.value === "b") score++;
 
-    // Quizvragen
-    const questions = [
-      {
-        question: "Wat was de rol van Andrée de Jongh tijdens WOII?",
-        options: [
-          "Ze werkte als verpleegster in Londen",
-          "Ze leidde een ontsnappingslijn voor geallieerde piloten",
-          "Ze schreef krantenartikelen over het verzet",
-          "Ze werkte in een munitiefabriek"
-        ],
-        answer: 1
-      },
-      {
-        question: "Welke vrouw leidde het Nederlandse verzet tegen de Nazi's?",
-        options: [
-          "Corrie ten Boom",
-          "Janna Coenraad",
-          "Hanneke Oosterhoff",
-          "Frieda Belinfante"
-        ],
-        answer: 0
-      },
-      {
-        question: "Wat deed Maria van Vloten tijdens de Tweede Wereldoorlog?",
-        options: [
-          "Ze hielp Joden ontsnappen",
-          "Ze schreef een boek over het verzet",
-          "Ze voerde saboteeracties uit",
-          "Ze werkte als verpleegster"
-        ],
-        answer: 0
-      }
-    ];
+  const result = document.getElementById('quizResult');
+  result.textContent = `Je behaalde ${score} van de 10 punten.`;
+});
+const carrouselData = [
+  {
+    name: "Andrée de Jongh",
+    img: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Civilian_Bravery_Awards_during_the_Second_World_War_HU55451.jpg",
+    text: "Leidde de Comet ontsnappingslijn en hielp honderden piloten vluchten naar Spanje."
+  },
+  {
+    name: "Freddie Oversteegen",
+    img: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRf9389VYM0GNewwOlMkGasxYkm5kOCqnW6BCYN8iCP24N97cmEYHFMLfRWkqFKAlkgkXrrrDpuV7yrc-vTxG2n_A",  // Voeg de juiste afbeelding van Freddie toe
+    text: "Was pas 14 toen ze bij het verzet ging. Ze saboteerde bruggen en spoorlijnen en hielp Joden onderduiken."
+  },
+  {
+    name: "Hannie Schaft",
+    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe-MDQczWvUxeI6v6Mli-XkAesSZoonw1IxNT_t0QkTYtWmkeTqUaI5lpZ9_NRyQtM9IU3dqv6UoUoGTfuY_ogJw",  // Voeg de juiste afbeelding van Hannie toe
+    text: "Bekend als 'het meisje met het rode haar'. Ze was een van de meest beruchte verzetsstrijders van Nederland."
+  },
+  {
+    name: "Nancy Wake",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Nancy_Wake_%281945%29.jpg/500px-Nancy_Wake_%281945%29.jpg",  // Voeg de juiste afbeelding van Nancy toe
+    text: "Australische verzetsheldin die door de Gestapo 'de witte muis' werd genoemd vanwege haar effectiviteit in het verzet."
+  }
+];
 
-    const quizContainer = document.getElementById("quizContainer");
-    const formQuiz = document.getElementById("verzetQuiz");
-    const resultDiv = document.getElementById("quizResult");
-    const retryButton = document.getElementById("retryQuiz");
+let currentSlide = 0;
 
-    function generateQuiz() {
-      quizContainer.innerHTML = ""; // Verwijder oude inhoud van de quiz
-      questions.forEach((q, i) => {
-        const div = document.createElement("div");
-        div.classList.add("question");
-        div.innerHTML = `
-          <p>${q.question}</p>
-          ${q.options.map((opt, j) => `
-            <label>
-              <input type="radio" name="question${i}" value="${j}"> ${opt}
-            </label><br>`).join("")}
-        `;
-        quizContainer.appendChild(div);
-      });
-      retryButton.style.display = "none";
+function updateCarousel() {
+  const image = document.getElementById('carouselImage');
+  const text = document.getElementById('carouselText');
+  const item = carrouselData[currentSlide];
+  image.src = item.img;
+  text.innerHTML = `<strong>${item.name}</strong>: ${item.text}`;
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % carrouselData.length;
+  updateCarousel();
+}
+
+function previousSlide() {
+  currentSlide = (currentSlide - 1 + carrouselData.length) % carrouselData.length;
+  updateCarousel();
+}
+
+  </script>
+  <script>
+  function showSection(id) {
+    // Verberg alle secties
+    const sections = document.querySelectorAll('.content-section');
+    sections.forEach(section => section.classList.remove('active'));
+
+    // Toon alleen de geselecteerde sectie
+    const target = document.getElementById(id);
+    if (target) {
+      target.classList.add('active');
+    }
+  }
+</script>
+<section id="quiz" class="content-section">
+  <h2>Quiz: Wat weet jij over vrouwen in het verzet?</h2>
+  <form id="verzetQuiz">
+    <div id="quizContainer"></div>
+    <button type="submit">Bekijk resultaat</button>
+  </form>
+  <div id="quizResult" style="margin-top: 1rem; font-weight: bold;"></div>
+  <button id="retryQuiz" style="display: none;">Maak de quiz opnieuw</button>
+</section>
+
+
+<script>
+const questions = [
+  {
+    question: "Wat was de rol van Andrée de Jongh tijdens WOII?",
+    options: [
+      "Ze werkte als verpleegster in Londen",
+      "Ze leidde een ontsnappingslijn voor geallieerde piloten",
+      "Ze schreef krantenartikelen over het verzet",
+      "Ze werkte in een munitiefabriek"
+    ],
+    answer: 1
+  },
+  {
+    question: "Welke activiteiten werden vaak door vrouwelijke verzetsstrijders uitgevoerd?",
+    options: [
+      "Sabotage van spoorlijnen",
+      "Spionage, boodschappen overbrengen en onderduikers helpen",
+      "Frontliniegevechten",
+      "Technische ondersteuning aan tanks"
+    ],
+    answer: 1
+  },
+  {
+    question: "Wat was een risico dat vrouwen liepen in het verzet?",
+    options: [
+      "Ze werden zelden betrapt",
+      "Alleen een boete",
+      "Gevangenschap, marteling of deportatie",
+      "Ze mochten enkel administratief werk doen"
+    ],
+    answer: 2
+  },
+  {
+    question: "Hoe werden vrouwen vaak onderschat door de bezetter?",
+    options: [
+      "Ze werden als ongevaarlijk beschouwd",
+      "Ze waren te luidruchtig",
+      "Ze droegen opvallende kleding",
+      "Ze spraken meerdere talen"
+    ],
+    answer: 0
+  },
+  {
+    question: "Wat verspreidden vrouwen zoals Lucie Dorgelo?",
+    options: [
+      "Krantencoupons",
+      "Verzetskranten en pamfletten",
+      "Reclamefolders",
+      "Radio-uitzendingen"
+    ],
+    answer: 1
+  },
+  {
+    question: "Hoe hielpen vrouwen het moreel van de bevolking hoog te houden?",
+    options: [
+      "Ze schreven liedjes",
+      "Door toneelstukken op te voeren",
+      "Door geheime nieuwsbrieven te verspreiden en mensen hoop te geven",
+      "Door voedsel uit te delen op straat"
+    ],
+    answer: 2
+  },
+  {
+    question: "Welke landen hadden vrouwen in het verzet tijdens WOII?",
+    options: [
+      "Enkel Frankrijk en Nederland",
+      "Alleen Groot-Brittannië",
+      "Bijna elk door Duitsland bezet land",
+      "Enkel België en Polen"
+    ],
+    answer: 2
+  },
+  {
+    question: "Waarom werden vrouwen vaak ingezet als koeriers?",
+    options: [
+      "Ze konden sneller fietsen",
+      "Ze hadden meer kennis van de stad",
+      "Ze werden minder snel verdacht door de bezetter",
+      "Ze spraken meerdere talen"
+    ],
+    answer: 2
+  },
+  {
+    question: "Wat gebeurde er vaak na de oorlog met vrouwelijke verzetsstrijders?",
+    options: [
+      "Ze kregen direct erkenning en medailles",
+      "Ze werden vergeten of genegeerd in de geschiedenis",
+      "Ze werden allemaal politiek actief",
+      "Ze emigreerden massaal"
+    ],
+    answer: 1
+  },
+  {
+    question: "Welke van deze beroepen namen veel vrouwen op na WOII als gevolg van hun ervaring in het verzet?",
+    options: [
+      "Actrice",
+      "Verpleegkundige en maatschappelijk werkster",
+      "Boekhouder",
+      "Architect"
+    ],
+    answer: 1
+  }
+];
+
+const quizContainer = document.getElementById("quizContainer");
+const form = document.getElementById("verzetQuiz");
+const resultDiv = document.getElementById("quizResult");
+const retryButton = document.getElementById("retryQuiz");
+
+function generateQuiz() {
+  quizContainer.innerHTML = "";
+  questions.forEach((q, i) => {
+    const div = document.createElement("div");
+    div.innerHTML = `
+      <p><strong>${i + 1}. ${q.question}</strong></p>
+      ${q.options.map((opt, j) => `
+        <label>
+          <input type="radio" name="question${i}" value="${j}"> ${opt}
+        </label><br>`).join("")}
+      <br>
+    `;
+    quizContainer.appendChild(div);
+  });
+  retryButton.style.display = "none";
+}
+
+form.addEventListener("submit", function(e) {
+  e.preventDefault();
+  let score = 0;
+  let feedback = [];
+
+  questions.forEach((q, i) => {
+    const selected = form.querySelector(`input[name="question${i}"]:checked`);
+    if (!selected) {
+      feedback.push(`<strong>Vraag ${i + 1}:</strong> Niet beantwoord.`);
+    } else if (parseInt(selected.value) === q.answer) {
+      score++;
+      feedback.push(`<strong>Vraag ${i + 1}:</strong> Juist!`);
+    } else {
+      feedback.push(`<strong>Vraag ${i + 1}:</strong> Fout! Het juiste antwoord was: "${q.options[q.answer]}".`);
+    }
+  });
+
+  resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}<br><br>${feedback.join('<br>')}`;
+  retryButton.style.display = "inline-block";
+});
+
+retryButton.addEventListener("click", () => {
+  form.reset();
+  resultDiv.innerHTML = "";
+  generateQuiz();
+});
+
+generateQuiz();
+</script>
+<head>
+  <style>
+    /* Maak de quiz gecentreerd zonder het volledige scherm te vullen */
+    #quiz {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 50px; /* Voeg wat ruimte bovenaan toe zodat het niet te dicht bij de top staat */
     }
 
-    formQuiz.addEventListener("submit", function (e) {
-      e.preventDefault();
-      let score = 0;
-      let feedback = [];
+    #verzetQuiz {
+      max-width: 600px; /* Beperk de breedte van de quiz, zodat het niet te groot is */
+      width: 100%;
+    }
 
-      questions.forEach((q, i) => {
-        const selected = formQuiz.querySelector(`input[name="question${i}"]:checked`);
-        if (!selected) {
-          feedback.push(`<strong>Vraag ${i + 1}:</strong> Niet beantwoord.`);
-        } else if (parseInt(selected.value) === q.answer) {
-          score++;
-          feedback.push(`<strong>Vraag ${i + 1}:</strong> Juist!`);
-        } else {
-          feedback.push(`<strong>Vraag ${i + 1}:</strong> Fout! Het juiste antwoord was: "${q.options[q.answer]}".`);
-        }
-      });
+    #quizResult, #retryQuiz {
+      margin-top: 20px;
+    }
+  </style>
+</head>
 
-      resultDiv.innerHTML = `Je score: ${score} van de ${questions.length}<br><br>${feedback.join('<br>')}`;
-      retryButton.style.display = "inline-block";
-    });
+<head>
+  <style>
+    /* Zorg ervoor dat de quiz altijd netjes in het midden van de pagina komt */
+    #quiz {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px; /* Voeg padding toe om de quiz wat ruimte te geven */
+      background-color: #f4f4f4; /* Maak het visueel onderscheidend */
+      border-radius: 10px; /* Maak de hoeken afgerond */
+      width: 100%;
+      max-width: 600px; /* Beperk de breedte zodat de quiz niet te breed is */
+      margin-left: auto;
+      margin-right: auto; /* Center de quiz horizontaal */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Voeg een lichte schaduw toe */
+    }
 
-    retryButton.addEventListener("click", () => {
-      formQuiz.reset();
-      resultDiv.innerHTML = "";
-      generateQuiz(); // Genereer de quiz opnieuw
-    });
+    /* Zorg ervoor dat de quiz in het midden van de pagina blijft */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh; /* Zorg ervoor dat de body altijd minimaal de hoogte van het scherm heeft */
+      margin: 0;
+      background-color: #f9f9f9;
+    }
 
-    // Genereer de quiz bij het laden van de pagina
-    document.addEventListener("DOMContentLoaded", generateQuiz);
-  </script>
+    #verzetQuiz {
+      width: 100%;
+    }
+
+    #quizResult, #retryQuiz {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+
+
 
 </body>
 </html>
